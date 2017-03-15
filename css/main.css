@@ -9,6 +9,10 @@ body {
       	right: 0px;
       	bottom: 10px;
       }
- .content_ul {
+ .content-ul {
  	font-size: 16px;
+ }
+ .div-bg {
+ 	min-height:400px;
+ 	background-size:cover;
  }

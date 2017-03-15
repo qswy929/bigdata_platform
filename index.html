@@ -70,7 +70,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <div id="firpic" class="row div-bg" style="min-height:400px;background-image:url('img/cover/cover1.jpg')">
+              <div id="idx_pic1" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
               </div>
               <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
               <div class="carousel-caption">
@@ -78,7 +78,15 @@
               </div>
             </div>
             <div class="item">
-              <div id="firpic" class="row div-bg" style="min-height:400px;background-image:url('img/cover/cover1.jpg')">
+              <div id="idx_pic2" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
+              </div>
+              <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
+              <div class="carousel-caption">
+                大数据教学实践平台
+              </div>
+            </div>
+            <div class="item">
+              <div id="idx_pic3" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
               </div>
               <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
               <div class="carousel-caption">
@@ -114,7 +122,10 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
-        $("#carousel-example-generic").css('height',$(window).height()-200);
+        $("#carousel-example-generic").css('height',$(window).height()*0.7);
+        $("#idx_pic1").css('height',$(window).height()*0.7);
+        $("#idx_pic2").css('height',$(window).height()*0.7);
+        $("#idx_pic3").css('height',$(window).height()*0.7);
       });
     </script>
   </body>
