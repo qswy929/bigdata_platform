@@ -70,27 +70,15 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <div id="idx_pic1" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
-              </div>
-              <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
-              <div class="carousel-caption">
-                大数据教学实践平台
+              <div id="idx_pic1" class="div-bg" style="background-image:url('img/index/cover1.png')">
               </div>
             </div>
             <div class="item">
-              <div id="idx_pic2" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
-              </div>
-              <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
-              <div class="carousel-caption">
-                大数据教学实践平台
+              <div id="idx_pic2" class="div-bg" style="background-image:url('img/index/cover2.png')">
               </div>
             </div>
             <div class="item">
-              <div id="idx_pic3" class="div-bg" style="background-image:url('img/cover/cover1.jpg')">
-              </div>
-              <!--<img src="img/cover/cover1.jpg" class="img-responsive center-block" alt="封面1">  -->
-              <div class="carousel-caption">
-                大数据教学实践平台
+              <div id="idx_pic3" class="div-bg" style="background-image:url('img/index/cover3.jpeg')">
               </div>
             </div>
           </div>
@@ -107,12 +95,51 @@
         </div>
       </div>
     </div>
+
+    <div class="container-fluid text-center container-margin-top" style="background-color:#f3f6f9">
+
+        <div class="col-lg-4 container-margin-bottom">
+          <img class="img-circle" src="img/index/study.png" width="140" height="140">
+          <h2>教学</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>  -->
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 container-margin-bottom">
+          <img class="img-circle" src="img/index/contest.png" width="140" height="140">
+          <h2>竞赛</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 container-margin-bottom">
+          <img class="img-circle" src="img/index/case.png" width="140" height="140">
+          <h2>案例</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+        </div><!-- /.col-lg-4 -->
+      
+    </div>
+
+
+
+
     
     <!--footer-->
     <footer>
-      <div class="container-fluid footer-fixed">
+      <div class="container-fluid footer-margin">
         <div class="container text-center">
-          Copyright © 2017 Tongji All Rights Reserved.
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="no-extra"><a href="#">关于平台</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">注意事项</a></li>
+                <li><a href="#" target="_blank">联系邮箱</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+            Copyright © 2017 Tongji All Rights Reserved.
+          </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -122,10 +149,19 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
-        $("#carousel-example-generic").css('height',$(window).height()*0.7);
-        $("#idx_pic1").css('height',$(window).height()*0.7);
-        $("#idx_pic2").css('height',$(window).height()*0.7);
-        $("#idx_pic3").css('height',$(window).height()*0.7);
+        var height = $(window).height()
+        if(height<700)
+        {
+          var coef=0.7
+        }
+        else
+        {
+          var coef=0.65
+        }
+        $("#carousel-example-generic").css('height',height*coef);
+        $("#idx_pic1").css('height',height*coef);
+        $("#idx_pic2").css('height',height*coef);
+        $("#idx_pic3").css('height',height*coef);
       });
     </script>
   </body>

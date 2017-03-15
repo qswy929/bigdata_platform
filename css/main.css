@@ -17,3 +17,14 @@ body {
  	background-size:cover;
  	background-position: center;
  }
+ .container-margin-top {
+ 	padding-top: 60px;
+ }
+
+  .container-margin-bottom {
+ 	padding-bottom: 60px;
+ }
+
+ .footer-margin {
+ 	margin-top: 15px;
+ }
