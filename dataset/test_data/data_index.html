@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Dataset</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+</head>
+<body>
+	<table id="list2" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+<!--         <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>		 -->
+	</table> 
+
+	以上为创建DataTables的简单例子。想了解全功能api，请移步<a href="https://datatables.net/examples/basic_init/">https://datatables.net/examples/basic_init/</a>
+
+	<script type="text/javascript">
+		$(function(){
+			//页面加载完成之后执行
+			pageInit();
+		});
+
+		function pageInit(){
+			$(document).ready(function() {
+			    $('#list2').DataTable( {
+			        "ajax": "data/data.txt",
+			       	dom: 'Bfrtip',
+        			buttons: [
+        			    {
+        			        extend: 'pdfHtml5',
+        			        message: 'PDF created by PDFMake with Buttons for DataTables.'
+        			    }
+        			]
+			        // "scrollY":        "200px",
+        			// "scrollCollapse": true,
+        			// "paging":         false
+			    } );
+			} );
+		}
+	</script>
+</body>
+</html>
