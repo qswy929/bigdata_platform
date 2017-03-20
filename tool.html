@@ -155,10 +155,10 @@
           $('#list').DataTable( {
               "ajax": "data/data.txt",
               dom: 'Bfrtip',
+              "destroy": true,
               buttons: [
                   {
-                      extend: 'pdfHtml5',
-                      message: 'PDF created by PDFMake with Buttons for DataTables.'
+                      extend: 'csvHtml5'
                   }
               ],
               "scrollY": "250px",
@@ -166,7 +166,7 @@
               "scrollCollapse": true,
               "paging": true,
               "language": {  
-                            info: "当前显示：第 _START_ 到第 _END_ 项",
+                            info: "当前显示：第 _START_ - _END_ 项",
                             paginate: {
                               first:      "首页",
                               previous:   "上一页",
