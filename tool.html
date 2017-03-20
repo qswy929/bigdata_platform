@@ -152,14 +152,18 @@
       function loadTable(){
         //$(document).ready(function() {
           //$("#container_table").html("");
-          var addr = 'http://192.168.1.131:8080/bigdata_service/ExecSQL?sql='+editor.getValue();
+          var addr = 'http://192.168.1.131:8080/bigdata_service/ExecSQL';
+          var para = 'sql='+editor.getValue();
+          var json;
           //console.log(addr);
-        
-
-
-          $.getJSON(addr, function(json) {
-            if (json!=null)
-            { 
+          $.ajax({
+            type: "POST",
+            url: addr,
+            data: para,
+            dataType: "text",
+            success: function(json){
+              try {
+                json = JSON.parse(json);
                 $("#container_table").show("");
                 $('#list').DataTable( {
                 "data": json.data,
@@ -188,9 +192,13 @@
                             search: "搜索：",
                             infoEmpty:  "无结果项"
                     }
-               } );
-            }    
-      } );
+                });
+              }
+              catch(err) {
+                alert(json);
+              }
+            }
+        });
     }
 
 
