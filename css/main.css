@@ -28,3 +28,10 @@ body {
  .footer-margin-top {
  	margin-top: 15px;
  }
+
+ .navbar-right-fixed {
+ 	float: right !important;
+ }
+ .navbar-compact {
+ 	margin-bottom: 0px !important;
+ }
