@@ -5,7 +5,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SQL执行</title>
-
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->   
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -21,7 +22,7 @@
         #border-radius: 5px;
       }
     </style>
-    <!-- 以下为生成查询表用 -->
+    <!-- 以下为生成datatables用 -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
@@ -77,7 +78,7 @@
         <div class="navbar-collapse">
           <a class="navbar-brand">当前数据集：测试数据集</a>
           <ul class="nav navbar-right-fixed">
-            <li><button type="button" id="btn_exec" class="btn btn-default navbar-btn" onclick="execSQL()">执行SQL</button></li>
+            <li><button type="button" id="btn_exec" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">执行SQL</button></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -90,7 +91,12 @@
         <!--<div class="col-md-12">
           <div class="textarea" contenteditable="true" style="height:400px;border:1px solid"><br /></div>
         </div> -->
-        <div id="editor">show tables;</div>
+        <div id="editor">-- SQL编辑器 beta 1
+-- 1.所有数据表为只读，且不能创建新表
+-- 2.目前一次只能执行一条语句，多条语句默认执行第一条
+
+-- 查看该数据集的所有table
+show tables;</div>
       </div>
     </div>
     
@@ -143,17 +149,15 @@
 
       });
 
-      function execSQL(){
-        $("#btn_exec").attr({"disabled":"disabled"});
-        loadTable();
-        $("#btn_exec").removeAttr("disabled");//将按钮可用
+      function execSQL(dbName){    
+        loadTable(dbName);    
       }
       
-      function loadTable(){
-        //$(document).ready(function() {
-          //$("#container_table").html("");
+      function loadTable(dbName){
+
+          $("#btn_exec").attr({"disabled":"disabled"});
           var addr = 'http://192.168.1.131:8080/bigdata_service/ExecSQL';
-          var para = 'sql='+editor.getValue();
+          var para = 'dbname='+dbName+'&sql='+editor.getValue();
           var json;
           //console.log(addr);
           $.ajax({
@@ -164,7 +168,6 @@
             success: function(json){
               try {
                 json = JSON.parse(json);
-                $("#container_table").show("");
                 $('#list').DataTable( {
                 "data": json.data,
                 "columns": json.columns,
@@ -197,6 +200,10 @@
               catch(err) {
                 alert(json);
               }
+              finally {
+                $("#btn_exec").removeAttr("disabled");//将按钮可用
+              }
+              
             }
         });
     }
