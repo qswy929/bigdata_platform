@@ -147,8 +147,16 @@
 
       $(function(){
       //页面加载完成之后执行
+      execSQL();
       pageInit();
       });
+      
+      var result;
+      function execSQL(){
+        $.getJSON("data/test_data.json", function(json){
+         alert("JSON Data: " + json.title);
+         });
+      }
 
       function pageInit(){
         $(document).ready(function() {
