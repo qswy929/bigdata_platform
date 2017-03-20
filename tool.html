@@ -77,7 +77,7 @@
         <div class="navbar-collapse">
           <a class="navbar-brand">当前数据集：测试数据集</a>
           <ul class="nav navbar-right-fixed">
-            <li><button type="button" class="btn btn-default navbar-btn">执行SQL</button></li>
+            <li><button type="button" id="btn_exec" class="btn btn-default navbar-btn" onclick="execSQL()">执行SQL</button></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -94,16 +94,10 @@
       </div>
     </div>
     
-    <div class="container-fluid">
+    <div class="container-fluid" id="container_table">
       <table id="list" class="display" cellspacing="0" width="100%">
         <thead>
             <tr id="title">
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Extn.</th>
-                <th>Start date</th>
-                <th>Salary</th>
             </tr>
         </thead>
       </table> 
@@ -145,42 +139,45 @@
       editor.setFontSize(16);
       editor.setShowPrintMargin(false);
 
-      $(function(){
-      //页面加载完成之后执行
-      execSQL();
-      pageInit();
-      });
-      
-      var result;
-      function execSQL(){
-        $.getJSON("data/test_data.json", function(json){
-          result = json.data;
-          $("#title").html();
-          $.each(result, function(i, item) {
-          $("#title").append(
-                    "<th>" + item + "</th>")
-          });
-        });
-      }
+      $(document).ready(function() {
 
-      function pageInit(){
-        $(document).ready(function() {
-          $('#list').DataTable( {
-              "data": result,
-              dom: 'Bfrtip',
-              "destroy": true,
-              buttons: [
+      });
+
+      function execSQL(){
+        $("#btn_exec").attr({"disabled":"disabled"});
+        loadTable();
+        $("#btn_exec").removeAttr("disabled");//将按钮可用
+      }
+      
+      function loadTable(){
+        //$(document).ready(function() {
+          //$("#container_table").html("");
+          var addr = 'http://192.168.1.131:8080/bigdata_service/ExecSQL?sql='+editor.getValue();
+          //console.log(addr);
+        
+
+
+          $.getJSON(addr, function(json) {
+            if (json!=null)
+            { 
+                $("#container_table").show("");
+                $('#list').DataTable( {
+                "data": json.data,
+                "columns": json.columns,
+                dom: 'Bfrtip',
+                "destroy": true,
+                buttons: [
                   {
                       extend: 'csvHtml5',
                       text: '导出成CSV',
                       title: 'sql_result'
                   }
-              ],
-              "scrollY": "250px",
-              "scrollX": true,
-              "scrollCollapse": true,
-              "paging": true,
-              "language": {  
+                ],
+                "scrollY": "250px",
+                "scrollX": true,
+                "scrollCollapse": true,
+                "paging": true,
+                "language": {  
                             info: "当前显示：第 _START_ - _END_ 项",
                             paginate: {
                                       first: "首页",
@@ -191,7 +188,8 @@
                             search: "搜索：",
                             infoEmpty:  "无结果项"
                     }
-          } );
+               } );
+            }    
       } );
     }
 
