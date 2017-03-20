@@ -97,7 +97,7 @@
     <div class="container-fluid">
       <table id="list" class="display" cellspacing="0" width="100%">
         <thead>
-            <tr>
+            <tr id="title">
                 <th>Name</th>
                 <th>Position</th>
                 <th>Office</th>
@@ -154,17 +154,19 @@
       var result;
       function execSQL(){
         $.getJSON("data/test_data.json", function(json){
-         alert("JSON Data: " + json.title);
-         });
+          result = json.data;
+          $("#title").html();
+          $.each(result, function(i, item) {
+          $("#title").append(
+                    "<th>" + item + "</th>")
+          });
+        });
       }
 
       function pageInit(){
         $(document).ready(function() {
           $('#list').DataTable( {
-              "ajax": {
-                      url: "data/data.txt",
-                      dataSrc: 'data'
-                    },
+              "data": result,
               dom: 'Bfrtip',
               "destroy": true,
               buttons: [
