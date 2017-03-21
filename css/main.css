@@ -21,15 +21,20 @@ body {
  	padding-top: 60px;
  }
 
-  .container-margin-bottom {
+ .container-margin-bottom {
  	padding-bottom: 60px;
  }
 
- .footer-margin {
+ .footer-margin-top {
  	margin-top: 15px;
  }
- .div-input {
- 	height:400px;
- 	border:1px solid;
- 	overflow-y:scroll;
+
+ .navbar-right-fixed {
+ 	float: right !important;
+ }
+ .navbar-compact {
+ 	margin-bottom: 0px !important;
+ }
+ .navbar-brand-compact {
+ 	margin-left: -20px !important;
  }

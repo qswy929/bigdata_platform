@@ -1,0 +1,19 @@
+{
+    "columns": [
+        { "data" : "DT_RowId", "title" : "ID" },
+        { "data" : "supplier", "title" : "大小" },
+        { "data" : "color", "title" : "颜色" }
+    ],
+    "data": [
+        { "DT_RowId" : "row_3", "supplier" : "small", "color" : "red" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "blue" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "blue" },
+        { "DT_RowId" : "row_11", "supplier" : "large", "color" : "blue" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "purple" },
+        { "DT_RowId" : "row_12", "supplier" : "medium", "color" : "blue" },
+        { "DT_RowId" : "row_5", "supplier" : "medium", "color" : "blue" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "yellow" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "blue" },
+        { "DT_RowId" : "row_3", "supplier" : "medium", "color" : "blue" }
+    ]
+}
