@@ -158,7 +158,7 @@
     	.attr("x", 20)
     	.attr("y", -10)
     	.style("fill", "green")
-    	.text("拥挤度指数: 50% 舒适");
+    	.text("拥挤度: 舒适");
 
     var orangeArea = chart.append("g")
     	.attr("transform", "translate(0, " + y(900) + ")");
@@ -177,7 +177,7 @@
     	.attr("x", 20)
     	.attr("y", -10)
     	.style("fill", "orange")
-    	.text("拥挤度指数: 75% 拥挤");
+    	.text("拥挤度: 拥挤");
 
     var redArea = chart.append("g")
     	.attr("transform", "translate(0, " + y(1170) + ")");
@@ -195,7 +195,7 @@
     	.attr("x", 20)
     	.attr("y", -10)
     	.style("fill", "red")
-    	.text("拥挤度指数: 100% 极度拥挤");
+    	.text("拥挤度: 极度拥挤");
 
     chart.append("g")
       	.attr("class", "y axis")
