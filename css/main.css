@@ -38,3 +38,9 @@ body {
  .navbar-brand-compact {
  	margin-left: -20px !important;
  }
+ .container-min-height {
+ 	min-height: 200px;
+ }
+ .navbar-brand-sm {
+ 	font-size: 16px;
+ }

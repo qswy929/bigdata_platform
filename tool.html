@@ -21,6 +21,7 @@
         height: 450px;
         #border-radius: 5px;
       }
+
     </style>
     <!-- 以下为生成datatables用 -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -30,8 +31,7 @@
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-
-
+    
 
 
   </head>
@@ -77,9 +77,12 @@
       <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse">
-          <a class="navbar-brand">当前数据集：测试数据集</a>
+          <a class="navbar-brand navbar-brand-sm">数据集：口碑客流量</a>
           <ul class="nav navbar-right-fixed">
-            <li><button type="button" id="btn_exec" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">执行SQL</button></li>
+            <li>
+              <button type="button" class="btn btn-info navbar-btn" onclick="execSQL_Next('koubei')">下一步</button>
+              <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">全部提交</button>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -94,26 +97,23 @@
         </div> -->
         <div id="editor">-- SQL编辑器 Beta 1
 -- 1.所有数据表为只读，且不能创建新表
--- 2.目前一次只能执行一条语句，多条语句默认执行第一条
+-- 2.一次提交多条语句时，分步每步执行一条
+-- 3.修改未执行的语句后，需要重新全部提交才能生效
 
--- 查看该数据集的所有table
+-- 以下操作查看该数据集的所有table
 show tables;</div>
       </div>
     </div>
     
-    <div class="container-fluid" id="container_table">
+    <div class="container-fluid container-min-height" id="container_table">
       <table id="list" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr id="title">
-            </tr>
-        </thead>
       </table> 
     </div>
 
 
     <!--footer-->
     <footer>
-      <div class="container-fluid footer-margin footer-margin-top">
+      <div class="container-fluid footer-margin-top">
         <div class="container text-center">
           <div class="row">
             <div class="col-md-6">
@@ -139,6 +139,7 @@ show tables;</div>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
+
       var editor = ace.edit("editor");
       editor.setTheme("ace/theme/terminal");
       editor.getSession().setMode("ace/mode/sql");
@@ -146,21 +147,58 @@ show tables;</div>
       editor.setFontSize(16);
       editor.setShowPrintMargin(false);
 
-      $(document).ready(function() {
+      var queries;
+      var cur_step;
+      var table;
 
-      });
+      function execSQL_Next(dbName)
+      {
+        var len = queries.length;
+        if(queries[len-1]=="")  //最后一项为空
+        {
+          len = len - 1;
+        }
+        if(cur_step > 1 && cur_step <= len)
+        {
+          //table.clear().draw();
+          table.destroy();
+          table.destroy();  //一定要执行两次
+          var tb="<table id='list' class='display' cellspacing='0' width='100%'></table>";  //这个bug排了24小时然而用一行代码就解决了
+          $("#container_table").html(tb);
+          loadTable(dbName,queries[cur_step-1]);
+        }
+      }
 
-      function execSQL(dbName){    
-        loadTable(dbName);    
+      function execSQL(dbName){ 
+        queries = editor.getValue().split(";");
+        cur_step = 1;
+        //alert(queries[0]);
+        try {
+          table.destroy();
+          table.destroy();  //一定要执行两次
+          var tb="<table id='list' class='display' cellspacing='0' width='100%'></table>";
+          $("#container_table").html(tb);
+        }
+        catch(err) {
+
+        }
+        finally{
+          loadTable(dbName,queries[0]); 
+        }
+        
       }
       
-      function loadTable(dbName){
-
-          $("#btn_exec").attr({"disabled":"disabled"});
+      function loadTable(dbName, query){
+          $("button").attr({"disabled":"disabled"});
           var addr = 'http://cloudware.tongji.edu.cn/api/v1/sql';
-          var para = 'dbname='+dbName+'&query='+editor.getValue();
-          var json;
-          //console.log(addr);
+
+          re = new RegExp("from","g"); //定义正则表达式
+          //第一个参数是要替换掉的内容，第二个参数"g"表示替换全部（global）。
+          query = query.replace(re, "form"); //第一个参数是正则表达式。
+
+          var para = 'dbname='+dbName+'&query='+query;
+          //var json;
+          //console.log(para);
           $.ajax({
             type: "POST",
             url: addr,
@@ -168,12 +206,16 @@ show tables;</div>
             dataType: "text",
             success: function(json){
               try {
+                //console.log(json.columns);
+
                 json = JSON.parse(json);
-                $('#list').DataTable( {
+                //alert(json.columns);
+                table = $("#list").DataTable( {
                 "data": json.data,
                 "columns": json.columns,
                 dom: 'Bfrtip',
                 "destroy": true,
+                "processing": true,
                 buttons: [
                   {
                       extend: 'csvHtml5',
@@ -198,13 +240,16 @@ show tables;</div>
                     }
                 });
               }
-              catch(err) {
+             catch(err) {
                 alert(json);
+                //table.draw();
+                //talbe.reload();
               }
               finally {
-                $("#btn_exec").removeAttr("disabled");//将按钮可用
+                $("button").removeAttr("disabled");//将按钮可用
+                //alert(cur_step);
+                cur_step = cur_step + 1;  //下一条指令是第2条
               }
-              
             }
         });
     }
