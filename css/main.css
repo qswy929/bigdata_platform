@@ -35,3 +35,6 @@ body {
  .navbar-compact {
  	margin-bottom: 0px !important;
  }
+ .navbar-brand-compact {
+ 	.margin-left: -20px !important;
+ }
