@@ -15,6 +15,61 @@
       body{
         padding-top: 50px !important;
       }
+      .title-cover2 {
+        color: white;
+        font-size: 25px;
+        margin: 0 0 5px;
+      }
+      .sub_title-cover2 {
+        color:#e49f6e;
+        font-size: 17px;
+        margin: 0 0 5px;
+      }
+      .title-cover3 {
+        color: white;
+        font-size: 25px;
+        margin: 0 0 5px;
+      }
+      .sub_title-cover3 {
+        color:#86c1d7;
+        font-size: 17px;
+        margin: 0 0 5px;
+      }
+      .position-title2{
+        position: relative;
+        top:40%;
+        #transform:translateX(-50%);
+        #transform:translateY(-50%);
+      }
+      .position-title3{
+        position: relative;
+        top:17%;
+        #transform:translateX(-50%);
+        #transform:translateY(-50%);
+      }
+      @media (min-width:992px){
+        .title-cover2 {
+          font-size: 36px;
+        }
+        .sub_title-cover2 {
+          font-size: 20px;
+        }
+        .title-cover3 {
+          color: white;
+          font-size: 36px;
+        }
+        .sub_title-cover3 {
+          color:#86c1d7;
+          font-size: 20px;
+        }
+        .position-title2{
+          top:34%;
+        }
+        .position-title3{
+          top:14%;
+        }
+      }
+
     </style>
     
   </head>
@@ -77,10 +132,22 @@
             </div>
             <div class="item">
               <div id="idx_pic2" class="div-bg" style="background-image:url('img/index/cover2.png')">
+                <div class="position-title2">
+                  <div class="col-md-6 col-md-offset-3 text-center">
+                    <p class="title-cover2">大数据教学实践平台</p>
+                    <p class="sub_title-cover2">发现数据之美</p>
+                  </div>
+                </div> 
               </div>
             </div>
             <div class="item">
               <div id="idx_pic3" class="div-bg" style="background-image:url('img/index/cover3.png')">
+                <div class="position-title3">
+                  <div class="col-md-6 col-md-offset-3 text-center">
+                    <p class="title-cover3">大数据教学实践平台</p>
+                    <p class="sub_title-cover3">在这里拥抱大数据</p>
+                  </div>
+                </div> 
               </div>
             </div>
           </div>
@@ -88,11 +155,11 @@
           <!-- Controls -->
           <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">上一页</span>
           </a>
           <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">下一页</span>
           </a>
         </div>
       </div>

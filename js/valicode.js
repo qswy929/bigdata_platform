@@ -9,7 +9,7 @@ function showCheck(a){/* 显示验证码图片 */
   {
     var ctx = c.getContext("2d");
     ctx.clearRect(0,0,1000,1000);
-   ctx.font = "80px Arial";
+    ctx.font = "80px Arial";
     ctx.fillText(a,60,95);
   }
 }
@@ -30,7 +30,6 @@ function createCode(){
     showCheck(code);
 }
           
-
 function validate() {
     var inputCode = document.getElementById("form-valicode").value.toUpperCase();
     var codeToUp=code.toUpperCase();
@@ -54,7 +53,6 @@ function validate() {
       createCode();
       return true;
     }
-
 }
 
 // $(document).ready(createCode);
