@@ -5,30 +5,35 @@ var editor = ace.edit("editor");
       editor.setFontSize(16);
       editor.setShowPrintMargin(false);
 
-      var queries;
-      var cur_step;
+      var queries = 0;
+      var cur_step = 0;
       var table;
+      var len;  //SQL语句条数
 
       function execSQL_Next(dbName)
       {
-        var len = queries.length;
-        if(queries[len-1]=="")  //最后一项为空
-        {
-          len = len - 1;
-        }
         if(cur_step > 1 && cur_step <= len)
         {
-          //table.clear().draw();
+          if(cur_step + 1 > len)
+          {
+            $("#btn_next").css('display','none');
+          }
           table.destroy();
           table.destroy();  //一定要执行两次
           var tb="<table id='list' class='display' cellspacing='0' width='100%'></table>";  //这个bug排了24小时然而用一行代码就解决了
           $("#container_table").html(tb);
           loadTable(dbName,queries[cur_step-1]);
+          
         }
       }
 
       function execSQL(dbName){ 
         queries = editor.getValue().split(";");
+        len = queries.length;
+        if(queries[len-1]=="")  //最后一项为空
+        {
+          len = len - 1;
+        }
         cur_step = 1;
         //alert(queries[0]);
         try {
@@ -41,7 +46,11 @@ var editor = ace.edit("editor");
 
         }
         finally{
-          loadTable(dbName,queries[0]); 
+          loadTable(dbName,queries[0]);
+          if(len > 1)
+          {
+            $("#btn_next").css('display','inline-block');
+          }
         }
         
       }

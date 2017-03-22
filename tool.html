@@ -31,8 +31,6 @@
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-    
-
 
   </head>
   <body>
@@ -80,7 +78,7 @@
           <a class="navbar-brand navbar-brand-sm">数据集：口碑客流量</a>
           <ul class="nav navbar-right-fixed">
             <li>
-              <button type="button" class="btn btn-info navbar-btn" onclick="execSQL_Next('koubei')">下一步</button>
+              <button type="button" id="btn_next" class="btn btn-info navbar-btn" style="display:none" onclick="execSQL_Next('koubei')">下一步</button>
               <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">全部提交</button>
             </li>
           </ul>
@@ -141,7 +139,7 @@ show tables;</div>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
-
+    
     </script>
   </body>
 </html>
