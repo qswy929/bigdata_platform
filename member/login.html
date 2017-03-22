@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="loginApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户登录</title>
+
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <style type="text/css">
+      .width-short {
+        /* You can specify preview size in CSS */
+        width: calc(100% - 98px);
+        width: -webkit-calc(100% - 98px);
+        width: -moz-calc(100% - 98px);
+        display: inline;
+      }  
+      .vali-canvas {
+      	width: 90px;
+      	height: 34px;
+      	vertical-align: middle;
+      }
+      body {
+      	padding-top: 35px;
+      	background: url(../images/bglgin.png);
+        font-family: "Microsoft YaHei";
+        padding-bottom: 35px;
+      }
+      .form-style {
+      	background-color: #ffffff;
+      	border-radius: 5px;
+      	opacity: 0.8;
+      	padding-top: 35px;
+      	padding-bottom: 30px;
+      }
+      h3 {
+      	margin:0;
+      	padding-bottom: 15px;
+      }
+      .text-white {
+      	color: white;
+      }
+      .text-lg {
+      	font-size: 17px;
+      }
+
+    </style>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body id="content-body" ng-controller="loginController">
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Top content -->
+  <div class="container">
+    <div>
+      <div class="row text-center text-white">
+	      <div>
+          <img src="../images/logo_color.png" style="max-width:170px"/>
+<!-- 	        <h1><strong>积&nbsp;&nbsp;木 LOGO</strong></h1>
+	        <div class="description">
+	          <p>
+	            积木，一个便捷的材料网站
+	          </p>
+	        </div> -->
+	      </div>
+	    </div>
+      <div class="container-fluid">
+        <div class="col-sm-6 col-sm-offset-3 form-box form-style">
+	        <div class="form-top text-center">
+	          <h3>请用积木帐号登录</h3>
+	        </div>
+	        <div class="form-bottom">
+	          <form role="form" action="" method="post">
+	            <div class="form-group">
+	              <label for="form-username">用户名</label>
+	                <input type="text" name="form-username" placeholder="" class="form-username form-control" id="form-username" required />
+	            </div>
+	            <div class="form-group">
+	              <label for="form-password" class="btn-block">密码
+	                <a href="#" class="pull-right">忘记密码？</a>
+	              </label>
+	              <input type="password" name="form-password" placeholder="" class="form-password form-control" id="form-password" required />
+	            </div>
+	            <!-- 验证码 -->
+	            <div class="form-group">
+	              <label class="btn-block" for="form-valicode">验证码</label>
+	              <input type="password" name="form-valicode" placeholder="" class="form-password form-control width-short" id="form-valicode" />
+			        	<canvas class="vali-canvas" id="myCanvas" data-ng-init="createCode()" ng-click="createCode()" data-toggle="tooltip" data-placement="top" title="点击更换验证码">
+			            当前浏览器不支持canvas标签！
+		            </canvas>
+	            </div>
+	            <button type="button" class="btn btn-primary btn-block text-lg" ng-click="validate()">登&nbsp;&nbsp;录
+              </button>
+	          </form>
+	        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js and others-->
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/valicode.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){ 
+        $("#content-body").css('padding-top',$(window).height()/10.5);
+      });
+      angular.module("loginApp",[])
+      .controller("loginController",function($scope){
+        $scope.createCode = createCode;
+        $scope.validate = validate;
+        });
+    </script>
+    <!-- <script src="../lib/app.js"></script>
+    <script src="../lib/controller.js"></script>  -->
+    <!-- endbuild -->
+  </body>
+</html>
