@@ -10,12 +10,6 @@
     <!-- Place favicon.ico in the root directory -->   
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />  
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->   
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- 引入Vue -->
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<!-- 引入样式 -->
@@ -59,6 +53,16 @@
         #transform:translateX(-50%);
         #transform:translateY(-50%);
       }
+      #backtop{
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        padding: 10px;
+        background: rgba(0, 153, 229, .7);
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+   	  }
       @media (min-width:992px){
         .title-cover2 {
           font-size: 36px;
@@ -81,7 +85,6 @@
           top:14%;
         }
       }
-
     </style>
 </head>
 <body>
@@ -130,14 +133,23 @@
     		</mugen-scroll>
     	</div>
     </div>
-
-
+	<div id="backtop">
+      <button v-on:click='back'></button>
+    </div>
 <script>
   Vue.component("dataset-item",{
   	props:['todo'],
   	template:"<Row><Col span='8'><Card><p slot='title'>{{todo.title}}</p><p>{{todo.information}}</p></Card></Col></Row>"
   });
-
+  var backtop = new Vue({
+    el:"#backtop",
+    methods:{
+      back:()=>{
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    }
+  })
   var app = new Vue({
   	el:"#datasets_container",
   	data:{
