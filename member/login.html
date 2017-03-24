@@ -52,6 +52,9 @@
         top: 0px;
         z-index: -1;
       }
+      .p-info {
+        height: 20px;
+      }
     </style>
 
   </head>
@@ -70,30 +73,33 @@
   	    </div>
         <div class="container-fluid">
           <div class="col-md-4 col-md-offset-4 form-box form-style">
-  	        <div class="form-top text-center">
-  	          <h3>请用平台帐号登录</h3>
-  	        </div>
+            <div class="text-center">
+              <h3>请用平台帐号登录</h3>
+            </div>
   	        <div class="form-bottom">
-  	          <form role="form" action="" method="post">
+  	          <form role="form" id="form_login" v-on:submit.prevent="onSubmit">
+                <div class="text-center">
+                  <p class="p-info" v-text="message"></p>
+                </div>
   	            <div class="form-group">
   	              <label for="form-username">用户名</label>
-  	                <input type="text" name="form-username" placeholder="" class="form-username form-control" id="form-username" required />
+  	                <input type="text" name="form_username" placeholder="" class="form-username form-control" id="form_username" v-model="info.username" required />
   	            </div>
   	            <div class="form-group">
   	              <label for="form-password" class="btn-block">密码
   	                <a href="#" class="pull-right">忘记密码？</a>
   	              </label>
-  	              <input type="password" name="form-password" placeholder="" class="form-password form-control" id="form-password" required />
+  	              <input type="password" name="form_password" placeholder="" class="form-password form-control" id="form_password" v-model="info.passwd" required />
   	            </div>
   	            <!-- 验证码 -->
   	            <div class="form-group">
   	              <label class="btn-block" for="form-valicode">验证码</label>
-  	              <input type="password" name="form-valicode" placeholder="" class="form-password form-control width-short" id="form-valicode" />
-  			        	<canvas class="vali-canvas" id="myCanvas" data-ng-init="createCode()" ng-click="createCode()" data-toggle="tooltip" data-placement="top" title="点击更换验证码">
+  	              <input type="text" name="form_valicode" placeholder="" class="form-password form-control width-short" id="form_valicode" required/>
+  			        	<canvas class="vali-canvas" id="myCanvas" v-on:click="createVali()" data-toggle="tooltip" data-placement="top" title="点击更换验证码">
   			            当前浏览器不支持canvas标签！
   		            </canvas>
   	            </div>
-  	            <button type="button" class="btn btn-primary btn-block text-lg" ng-click="validate()">登&nbsp;&nbsp;录
+  	            <button type="submit" class="btn btn-primary btn-block text-lg">登&nbsp;&nbsp;录
                 </button>
   	          </form>
   	        </div>
@@ -104,17 +110,24 @@
     <canvas id="bg_canvas" class="bg-canvas"></canvas>
 
     <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../js/valicode.js"></script>
     <script src="../js/background.js"></script>
+    <script src="../js/jquery.md5.js"></script>
+    <!-- vue.js -->
+    <script src="http://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
+
+
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
         $("#content-body").css('padding-top',$(window).height()/10);
-        createCode();
+        //createCode();
         init();
-        setInterval(function () {
+        setInterval(function () {    //背景动画
           for (var i = 0; i < POINT; i++) {
             var cir = circleArr[i];
             cir.x += cir.moveX;
@@ -128,11 +141,55 @@
         }, 16);
       });
 
-      //angular.module("loginApp",[])
-      //.controller("loginController",function($scope){
-        //$scope.createCode = createCode;
-        //$scope.validate = validate;
-        //});
+      new Vue ({
+        el: '#form_login',
+        data : {
+          info: {
+            username:'',
+            passwd:''
+          },
+          message:'',
+          //apiUrl: 'http://cloudware.tongji.edu.cn/api/v1/user/login'
+          apiUrl: 'http://192.168.1.131:8080/bigdata_service/api/v1/user/login'
+        },
+        methods: {
+          createVali: function() {
+            createCode();
+          },
+          onSubmit: function() {
+            if(validate())  //验证码正确
+            {
+              this.$http.post(this.apiUrl, {username:this.info.username,passwd:$.md5(this.info.passwd)}).then(function(response){
+                // 响应成功回调
+                if(response.body=="Ok")
+                {
+                  alert($.cookie('username'));
+                }
+                else if(response.body=="Fail")
+                {
+                  this.message="用户名或密码错误！";
+                }
+                else
+                {
+                  this.message="抱歉，服务器内部错误！";
+                }
+
+                }, function(response){
+                    // 响应错误回调
+                    this.message="抱歉，服务器无响应！";
+              });
+            }
+          }
+        },
+        mounted: function() {
+          this.createVali();
+        }
+      });
+      Vue.http.options.emulateJSON = true;
+
+
+
+      
     </script>
     <!-- endbuild -->
   </body>

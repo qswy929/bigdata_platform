@@ -10,7 +10,7 @@ function showCheck(a){/* 显示验证码图片 */
     var ctx = c.getContext("2d");
     ctx.clearRect(0,0,1000,1000);
     ctx.font = "80px Arial";
-    ctx.fillText(a,60,95);
+    ctx.fillText(a,55,95);
   }
 }
 
@@ -31,25 +31,25 @@ function createCode(){
 }
           
 function validate() {
-    var inputCode = document.getElementById("form-valicode").value.toUpperCase();
+    var inputCode = document.getElementById("form_valicode").value.toUpperCase();
     var codeToUp=code.toUpperCase();
     //未输入
     if(inputCode.length <=0) {
-      document.getElementById("form-valicode").setAttribute("placeholder","请输入验证码");
+      document.getElementById("form_valicode").setAttribute("placeholder","请输入验证码");
       createCode();
       return false;
     }
     //输入错误
     else if(inputCode != codeToUp ){
-      document.getElementById("form-valicode").value="";
-      document.getElementById("form-valicode").setAttribute("placeholder","输入错误");
+      document.getElementById("form_valicode").value="";
+      document.getElementById("form_valicode").setAttribute("placeholder","输入错误");
       createCode();
       return false;
     }
     else {
       //window.open(document.getElementById("J_down").getAttribute("data-link"));
       //document.getElementById("J_codetext").value="";
-      alert("输入正确！");
+      //alert("输入正确！");
       createCode();
       return true;
     }
