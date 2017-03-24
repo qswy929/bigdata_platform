@@ -30,11 +30,12 @@
       $(document).ready(function(){ 
         if(typeof($.cookie('username'))!="undefined")
         {
-          //$.cookie('username',null,{path:"/", expires: -1});
-          $.removeCookie('username');   //还是要在github中查API
+          $.cookie('username',null,{path:"/", expires: -1});
+          //$.removeCookie('username');   //还是要在github中查API
         }     
-        window.history.back();
-        window.location.reload();
+        //window.history.back();
+        //window.location.reload();
+        window.history.go(-1);
       });
     </script>
   </body>

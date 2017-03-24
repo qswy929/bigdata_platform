@@ -163,8 +163,9 @@
                 // 响应成功回调
                 if(response.body=="Ok")
                 {
-                  window.history.back();
-                  window.location.reload();
+                  //window.history.back();
+                  //window.location.reload();
+                  window.history.go(-1);
 
                 }
                 else if(response.body=="Fail")
