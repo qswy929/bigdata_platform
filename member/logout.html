@@ -30,10 +30,10 @@
       $(document).ready(function(){ 
         if(typeof($.cookie('username'))!="undefined" && $.cookie('username') != null)
         {
-          $.cookie('username',null);
+          $.cookie('username',null,{path:"/"});
         }     
-        //window.history.back();
-        //window.location.reload();
+        window.history.back();
+        window.location.reload();
       });
     </script>
   </body>
