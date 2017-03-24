@@ -163,7 +163,9 @@
                 // 响应成功回调
                 if(response.body=="Ok")
                 {
-                  alert($.cookie('username'));
+                  window.history.back();
+                  window.location.reload();
+
                 }
                 else if(response.body=="Fail")
                 {

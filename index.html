@@ -103,9 +103,9 @@
             <li><a href="case.html">大数据案例</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="app">
             <li><a href="#">注册</a></li>
-            <li><a href="member/login.html">登录</a></li>
+            <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -214,7 +214,11 @@
     </footer>
    
     <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- vue.js -->
+    <script src="http://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
+
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
@@ -231,6 +235,31 @@
         $("#idx_pic1").css('height',height*coef);
         $("#idx_pic2").css('height',height*coef);
         $("#idx_pic3").css('height',height*coef);
+      });
+
+      new Vue ({
+        el: '#app',
+        data : {
+          ope_info: '',
+          url: '#'
+        },
+        methods: {
+          urlRoute: function(){
+            if(typeof($.cookie('username'))!="undefined" && $.cookie('username') != null)
+            {
+              this.ope_info = '注销';
+              this.url="member/logout.html";
+            }
+            else
+            {
+              this.ope_info = '登录';
+              this.url="member/login.html";
+            }
+          }
+        },
+        mounted: function() {
+          this.urlRoute();
+        }
       });
     </script>
   </body>
