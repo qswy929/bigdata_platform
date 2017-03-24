@@ -33,11 +33,14 @@
           $.cookie('username',null,{path:"/", expires: -1});
           //$.removeCookie('username');   //还是要在github中查API
         }     
-        //window.history.back();
-        //window.location.reload();
-        //window.history.go(-1);
-        self.location=document.referrer;
-        //return false;
+        if(document.referrer!="")
+        {
+          self.location=document.referrer;
+        }
+        else
+        {
+          window.location.href="../index.html";
+        }     
       });
     </script>
   </body>

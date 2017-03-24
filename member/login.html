@@ -24,7 +24,6 @@
       }
       body {
       	padding-top: 35px;
-        font-family: "Microsoft YaHei";
         padding-bottom: 35px;
         background: #F7FAFC;
         overflow: hidden;
@@ -33,8 +32,8 @@
       	#background-color: #ffffff;
       	border-radius: 5px;
       	opacity: 0.8;
-      	padding-top: 35px;
-      	padding-bottom: 30px;
+      	padding-top: 32px;
+      	#padding-bottom: 30px;
       }
       h3 {
       	margin:0;
@@ -163,12 +162,15 @@
                 // 响应成功回调
                 if(response.body=="Ok")
                 {
-                  //window.history.back();
-                  //window.location.reload();
                   //window.history.go(-1);
-                  self.location=document.referrer;
-                  //return false;
-
+                  if(document.referrer!="")
+                  {
+                  	self.location=document.referrer;
+                  }
+                  else
+                  {
+                  	window.location.href="../index.html";
+                  }                  
                 }
                 else if(response.body=="Fail")
                 {

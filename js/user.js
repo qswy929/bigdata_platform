@@ -8,7 +8,7 @@ new Vue ({
           urlRoute: function(){
             if(typeof($.cookie('username'))!="undefined" && $.cookie('username') != null)
             {
-              this.ope_info = '注销';
+              this.ope_info = '退出';
               this.url="member/logout.html";
             }
             else
