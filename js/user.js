@@ -6,15 +6,15 @@ new Vue ({
         },
         methods: {
           urlRoute: function(){
-            if(typeof($.cookie('username'))!="undefined" && $.cookie('username') != null)
+            if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
             {
               this.ope_info = '退出';
-              this.url="member/logout.html";
+              this.url="member/signout.html";
             }
             else
             {
               this.ope_info = '登录';
-              this.url="member/login.html";
+              this.url="member/signin.html";
             }
           }
         },

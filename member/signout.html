@@ -28,9 +28,9 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
-        if(typeof($.cookie('username'))!="undefined")
+        if(typeof($.cookie('JSESSIONID'))!="undefined")
         {
-          $.cookie('username',null,{path:"/", expires: -1});
+          $.cookie('JSESSIONID',null,{path:"/", expires: -1});
           //$.removeCookie('username');   //还是要在github中查API
         }     
         if(document.referrer!="")
