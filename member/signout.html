@@ -39,7 +39,11 @@
           onLoad: function() {
             this.$http.post(this.apiUrl).then(function(response){
               // 响应成功回调
-              if(response.body=="Fail")
+              if(response.body=="Ok") 
+              {
+                $.cookie('JSESSIONID',null,{path:"/", expires: -1});
+              }
+              else
               {
                 alert("抱歉，注销失败！");
               }
