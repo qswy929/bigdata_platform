@@ -95,7 +95,7 @@ var editor = ace.edit("editor");
                 "scrollCollapse": true,
                 "paging": true,
                 "language": {  
-                            info: "当前显示：第 _START_ - _END_ 项",
+                            info: "当前显示：第 _START_ - _END_ 条",
                             paginate: {
                                       first: "首页",
                                       previous: "上一页",
@@ -103,7 +103,10 @@ var editor = ace.edit("editor");
                                       last: "尾页"
                             },
                             search: "搜索：",
-                            infoEmpty:  "无结果项"
+                            infoEmpty:  "无搜索结果",
+                            infoFiltered: "(从 _MAX_ 条记录过滤)",
+                            zeroRecords: "没有找到记录",
+                            lengthMenu: "每页 _MENU_ 条记录"
                     }
                 });
               }
