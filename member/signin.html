@@ -76,7 +76,7 @@
               <h3>请用平台帐号登录</h3>
             </div>
   	        <div class="form-bottom">
-  	          <form role="form" id="form_login" v-on:submit.prevent="onSubmit">
+  	          <form role="form" id="form_signin" v-on:submit.prevent="onSubmit">
                 <div class="text-center">
                   <p class="p-info" v-text="message"></p>
                 </div>
@@ -115,8 +115,8 @@
     <script src="../js/background.js"></script>
     <script src="../js/jquery.md5.js"></script>
     <!-- vue.js -->
-    <script src="http://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
-    <script src="http://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
 
 
 
@@ -141,14 +141,13 @@
       });
 
       new Vue ({
-        el: '#form_login',
+        el: '#form_signin',
         data : {
           info: {
-            username:'',
-            passwd:''
+            username: '',
+            passwd: ''
           },
-          message:'',
-          //apiUrl: 'http://cloudware.tongji.edu.cn/api/v1/user/login'
+          message: '',
           apiUrl: 'http://cloudware.tongji.edu.cn/api/v1/user/signin'
         },
         methods: {
