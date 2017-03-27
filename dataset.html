@@ -146,8 +146,7 @@
     		<dataset-item v-for="dataset in datasets" :todo="dataset"></dataset-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
-          <Icon type="load-c" size=18></Icon>
-          <div>载入中</div>
+          <Icon type="load-c" size=28></Icon>
         </Spin>
     		</mugen-scroll>
     	</div>
