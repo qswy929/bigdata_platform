@@ -1,5 +1,6 @@
 body {
   padding-top: 70px;
+  font-family: "Microsoft YaHei";
   //padding-bottom: 20px;
 }
 
@@ -42,6 +43,10 @@ body {
  	min-height: 220px;
  }
  .navbar-brand-sm {
+ 	font-size: 16px;
+ }
+ .input-style {
+ 	height: 38px;
  	font-size: 16px;
  }
 

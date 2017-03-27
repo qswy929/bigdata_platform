@@ -57,7 +57,7 @@ var editor = ace.edit("editor");
       
       function loadTable(dbName, query){
           $("button").attr({"disabled":"disabled"});
-          var addr = 'http://cloudware.tongji.edu.cn/api/v1/sql';
+          var addr = 'http://cloudware.tongji.edu.cn/api/v1/inceptorsql';
 
           re = new RegExp("from","g"); //定义正则表达式
           //第一个参数是要替换掉的内容，第二个参数"g"表示替换全部（global）。
@@ -95,7 +95,7 @@ var editor = ace.edit("editor");
                 "scrollCollapse": true,
                 "paging": true,
                 "language": {  
-                            info: "当前显示：第 _START_ - _END_ 项",
+                            info: "当前显示：第 _START_ - _END_ 条",
                             paginate: {
                                       first: "首页",
                                       previous: "上一页",
@@ -103,7 +103,10 @@ var editor = ace.edit("editor");
                                       last: "尾页"
                             },
                             search: "搜索：",
-                            infoEmpty:  "无结果项"
+                            infoEmpty:  "无搜索结果",
+                            infoFiltered: "(从 _MAX_ 条记录中筛选)",
+                            zeroRecords: "没有找到记录",
+                            lengthMenu: "每页 _MENU_ 条记录"
                     }
                 });
               }
