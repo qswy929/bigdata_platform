@@ -14,9 +14,11 @@
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<!-- 引入样式 -->
 	<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- 引入组件库 -->
 	<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/vue-mugen-scroll@0.2.1/dist/vue-mugen-scroll.min.js"></script>
+
     <style type="text/css">
       body{
         padding-top: 50px !important;
@@ -88,7 +90,7 @@
     </style>
     <style type="text/css">
       #datasets {
-        width: 60%;
+        width: 80%;
         margin: 0 auto;
       }
     </style>
@@ -133,7 +135,7 @@
 
     <div id="datasets_container">
     	<div id="datasets">
-    		<dataset-item v-for="dataset in datasets" :todo="dataset"></dataset-item>
+    		<dataset-item v-for="dataset in datasets" :todo="dataset" :imgsrc="imgsrc"></dataset-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
       			loading...
     		</mugen-scroll>
@@ -144,8 +146,8 @@
     </div>
 <script>
   Vue.component("dataset-item",{
-  	props:['todo'],
-  	template:"<Row><Col span='24'><Card><p slot='title'><Icon type='ion-stats-bars'></Icon>{{todo.title}}</p><p>{{todo.information}}</p></Card></Col></Row>"
+  	props:['todo','imgsrc'],
+  	template:"<Row><Col span='12' offset='6'><Card><p slot='title'><img v-bind:src='imgsrc'></img>{{todo.title}}</p><p>{{todo.information}}</p></Card></Col></Row>"
   });
   var backtop = new Vue({
     el:"#backtop",
@@ -159,6 +161,7 @@
   var app = new Vue({
   	el:"#datasets_container",
   	data:{
+      imgsrc:"./img/datasets/logo.png",
   		datasets:[
   			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明"},
   			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明"},
