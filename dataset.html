@@ -30,7 +30,7 @@
         padding: 10px;
         height: 40px;
         width: 45px;
-        background-color: rgba(0,0,0,.6);
+        background-color: rgba(0,0,0,0.45);
         text-align: center;
         border-radius: 2px;
         color: white;
@@ -74,16 +74,22 @@
       .p-title {
         font-size: 16px;
       }
+      .dataset-title {
+        font-size: 16.5px !important;
+      }
       @media (min-width:992px) {
         .p-title {
-        font-size: 24px;
+          font-size: 24px;
         }
         h1 {
-        margin-top: 57px;
-        font-size: 53px;
+          margin-top: 57px;
+          font-size: 53px;
         }
         .row-height {
           height: 220px;
+        }
+        .dataset-title {
+          font-size: 18px !important;
         }
       }
     </style>
@@ -152,7 +158,7 @@
     <script>
       Vue.component("dataset-item",{
       	props:['todo'],
-      	template:"<Row><Col span='24'><Card style='margin-bottom:20px'><p slot='title' style='font-size:20px'>{{todo.title}}</p><a href='#'><p>{{todo.information}}</p></a></Card></Col></Row>"
+      	template:"<Row><Col span='24'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a href='#'><p>{{todo.information}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop",
