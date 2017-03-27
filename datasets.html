@@ -86,6 +86,12 @@
         }
       }
     </style>
+    <style type="text/css">
+      #datasets {
+        width: 60%;
+        margin: 0 auto;
+      }
+    </style>
 </head>
 <body>
 	<!--[if lt IE 10]>
@@ -139,7 +145,7 @@
 <script>
   Vue.component("dataset-item",{
   	props:['todo'],
-  	template:"<Row><Col span='8'><Card><p slot='title'>{{todo.title}}</p><p>{{todo.information}}</p></Card></Col></Row>"
+  	template:"<Row><Col span='24'><Card><p slot='title'><Icon type='ion-stats-bars'></Icon>{{todo.title}}</p><p>{{todo.information}}</p></Card></Col></Row>"
   });
   var backtop = new Vue({
     el:"#backtop",
@@ -149,7 +155,7 @@
         document.documentElement.scrollTop = 0;
       }
     }
-  })
+  });
   var app = new Vue({
   	el:"#datasets_container",
   	data:{
@@ -165,8 +171,10 @@
   			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明"},
   			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明"},
   			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明"}
-  		]
+  		],
+      loading:false
   	},
+    components: {MugenScroll},
   	methods:{
       	fetchData() {
       	  this.loading = true
@@ -176,8 +184,7 @@
   		  }
       	  this.loading = false
       	}
-  	},
-  	components: {MugenScroll}
+  	}
   })
 </script>
 </body>
