@@ -104,7 +104,7 @@ var editor = ace.edit("editor");
                             },
                             search: "搜索：",
                             infoEmpty:  "无搜索结果",
-                            infoFiltered: "(从 _MAX_ 条记录过滤)",
+                            infoFiltered: "(从 _MAX_ 条记录中筛选)",
                             zeroRecords: "没有找到记录",
                             lengthMenu: "每页 _MENU_ 条记录"
                     }
