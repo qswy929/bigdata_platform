@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   	<!-- 引入组件库 -->
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="../js/jquery.cookie.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/userstatus.js" type="text/javascript"></script>
   	<script type="text/javascript" src="https://unpkg.com/iview/dist/iview.min.js"></script>
@@ -162,7 +162,7 @@
     <script>
       Vue.component("dataset-item",{
       	props:['todo'],
-      	template:"<Row><Col span='24'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a href='{{todo.link}}'><p>{{todo.information}}</p></a></Card></Col></Row>"
+      	template:"<Row><Col span='24'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a :href='{{todo.link}}'><p>{{todo.information}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop",
