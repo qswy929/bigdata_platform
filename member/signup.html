@@ -84,7 +84,7 @@
                   <input type="text" name="form_nickname" placeholder="用户名(至少6位英文字符)" class="form-control input-style" id="form_nickname" v-model="info.nickname" pattern="^[a-zA-Z][a-zA-Z0-9_]{5,20}$"required />
                 </div>
   	            <div class="form-group">
-  	               <input type="text" name="form_stuid" placeholder="学/工号(请确保同济邮箱已开通)" class="form-control input-style" id="form_stuid" v-model="info.stuid" pattern="[0-9]*" required />
+  	               <input type="text" name="form_stuid" placeholder="学/工号(请确保同济邮箱已开通)" class="form-control input-style" id="form_stuid" v-model="info.stuid" pattern="[0-9]{5,10}" required />
   	            </div>
   	            <div class="form-group">
   	              <input type="password" name="form_password" placeholder="密码" class="form-control input-style" id="form_password" v-model="info.passwd" maxlength="20" required />
