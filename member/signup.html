@@ -120,7 +120,16 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(document).ready(function(){ 
-        $("#content-body").css('padding-top',$(window).height()/12);
+        var width = $(window).width()
+        if(width<992)
+        {
+          var coef = 15;
+        }
+        else
+        {
+          var coef = 11;
+        }
+        $("#content-body").css('padding-top',$(window).height()/coef);
         init();
         setInterval(function () {    //背景动画
           for (var i = 0; i < POINT; i++) {
