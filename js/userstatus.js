@@ -9,12 +9,12 @@ new Vue ({
             if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
             {
               this.ope_info = '退出';
-              this.url="member/signout.html";
+              this.url="http://cloudware.tongji.edu.cn/member/signout.html";
             }
             else
             {
               this.ope_info = '登录';
-              this.url="member/signin.html";
+              this.url="http://cloudware.tongji.edu.cn/member/signin.html";
             }
           }
         },
