@@ -56,7 +56,8 @@
       <div class="row">
         <div class="col-md-3">
           <ul class="nav nav-pills nav-stacked">
-            <li id="li1" class="case_nav active" role="presentation" onclick="preface()"><a>力向导图</a></li>
+            <li id="li1" class="case_nav active" role="presentation" onclick="preface()"><a>力向导图1</a></li>
+            <li id="li2" class="case_nav" role="presentation" onclick="fractal()"><a>力向导图2</a></li>
           </ul>
         </div>
         <div class="col-md-8 container-margin-bottom">
@@ -88,7 +89,7 @@
 
       function fractal(){
         var fractal = document.getElementById("i");
-        fractal.src = "tree.html";
+        fractal.src = "force2.html";
         fractal.scrolling = "no";
         $(".case_nav").removeClass("active");
         $("#li2").addClass("active");
