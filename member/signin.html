@@ -161,6 +161,17 @@
             {
               if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)  //cookie不空
               {
+                if(document.referrer!="")
+                {
+                  self.location=document.referrer;
+                }
+                else
+                {
+                  window.location.href="../index.html";
+                }
+              }
+              else
+              {
                 this.$http.post(this.apiUrl, {username:this.info.username,passwd:$.md5(this.info.passwd)}).then(function(response){
                 // 响应成功回调
                 if(response.body=="Ok")
@@ -191,17 +202,6 @@
                     this.createVali();
                     this.message="抱歉，服务器无响应！";
                 });
-              }
-              else
-              {
-                if(document.referrer!="")
-                {
-                  self.location=document.referrer;
-                }
-                else
-                {
-                  window.location.href="../index.html";
-                }   
               }
             }
           }
