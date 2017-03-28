@@ -80,12 +80,12 @@
                 <div class="text-center">
                   <p class="p-info" v-text="message"></p>
                 </div>
+                <div class="form-group">
+                  <input type="text" name="form_nickname" placeholder="用户名(至少6位英文字符)" class="form-control input-style" id="form_nickname" v-model="info.nickname" pattern="^[a-zA-Z][a-zA-Z0-9_]{5,20}$"required />
+                </div>
   	            <div class="form-group">
   	               <input type="text" name="form_stuid" placeholder="学/工号(请确保同济邮箱已开通)" class="form-control input-style" id="form_stuid" v-model="info.stuid" pattern="[0-9]*" required />
   	            </div>
-                <div class="form-group">
-                  <input type="text" name="form_nickname" placeholder="用户昵称" class="form-control input-style" id="form_nickname" v-model="info.nickname" maxlength="20" required />
-                </div>
   	            <div class="form-group">
   	              <input type="password" name="form_password" placeholder="密码" class="form-control input-style" id="form_password" v-model="info.passwd" maxlength="20" required />
   	            </div>
@@ -172,7 +172,7 @@
                 else if(response.body=="Fail")
                 {
                   
-                  this.message="该学/号已被注册！";
+                  this.message="昵称或学/工号已被注册！";
                 }
                 else if(response.body=="Denied")
                 {
