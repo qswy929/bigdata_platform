@@ -6,15 +6,21 @@ new Vue ({
         },
         methods: {
           urlRoute: function(){
+            var prefix="";
+            var len= window.location.pathname.split("/").length;
+            for (var i = 2;i<len;i++)
+            {
+              prefix = prefix + "../";
+            }
             if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
             {
               this.ope_info = '退出';
-              this.url="http://cloudware.tongji.edu.cn/member/signout.html";
+              this.url=prefix+"member/signout.html";
             }
             else
             {
               this.ope_info = '登录';
-              this.url="http://cloudware.tongji.edu.cn/member/signin.html";
+              this.url=prefix+"member/signin.html";
             }
           }
         },
