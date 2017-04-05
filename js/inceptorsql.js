@@ -2,7 +2,6 @@ var editor = ace.edit("editor");
       editor.setTheme("ace/theme/terminal");
       editor.getSession().setMode("ace/mode/sql");
       editor.setOption("wrap", "free");
-      editor.setFontSize(16);
       editor.setShowPrintMargin(false);
 
       var queries = 0;
