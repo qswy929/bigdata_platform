@@ -18,33 +18,24 @@
         padding-top: 50px !important;
         -webkit-font-smoothing: subpixel-antialiased;
       }
-      #backtop{
-        position: fixed;
-        bottom: 50px;
-        right: 20px;
-        padding: 10px;
+      .backtop{
+        #position: fixed;
+        #bottom: 50px;
+        #right: 20px;
+        #padding: 10px;
         height: 40px;
         width: 45px;
         background-color: rgba(0,0,0,0.45);
         text-align: center;
         border-radius: 2px;
-        color: white;
    	  }
-
-      #backtop a,a:visited,a:hover,a:active {
-        color: white;
-        text-decoration: none;
-      }
-      #datasets {
-        width: 80%;
-        margin: 0 auto;
-      }
       .loadingHide {
         display: none;
       }
       #datasets_container 
         a,a:visited,a:hover,a:active { /*全部状态都一样的效果*/
-          color: grey;           /*一直都蓝色*/
+          color: grey; 
+          text-decoration: none;          
       } 
       .row-common-style {
         background-color: #337ab7;
@@ -72,7 +63,7 @@
       .dataset-title {
         font-size: 16.5px !important;
       }
-      @media (min-width:992px) {
+      @media (min-width:768px) {
         .p-title {
           font-size: 24px;
         }
@@ -146,9 +137,14 @@
     		</mugen-scroll>
     	</div>
     </div>
-	  <div id="backtop">
-      <a v-on:click='back'><Icon type="chevron-up"></Icon></a>
-    </div>
+    <div id="backtop">
+      <Back-top>
+        <div class="backtop">
+          <Icon type="chevron-up">
+        </div>
+      </Back-top>
+    <div>
+      <!--<a v-on:click='back'><Icon type="chevron-up"></Icon></a> -->
 
     <!-- 引入组件库 -->
     <!-- 引入Vue.js -->   
@@ -163,7 +159,7 @@
     <script>
       Vue.component("dataset-item",{
       	props:['todo'],
-      	template:"<Row><Col span='24'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a :href='todo.link'><p>{{todo.information}}</p></a></Card></Col></Row>"
+      	template:"<Row><Col span='18' offset='3'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a :href='todo.link'><p>{{todo.information}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop",
@@ -178,7 +174,7 @@
       	el:"#datasets_container",
       	data:{
       		datasets:[
-      			{title:"IJCAI-17 口碑商家客流量预测",information:"口碑致力于为每个商家提供销售预测。基于预测结果，商家可以优化运营，降低成本，并改善用户体验。这次比赛中，我们将以恰当定义的销售预测问题为题。 我们鼓励创新的解法，帮助口碑成为更加智能的商业平台，更好地服务社会。同时，希望每位参赛选手都能享受到这次比赛带来的乐趣。",link:"tool/sql.html"},
+      			{title:"IJCAI-17 口碑商家客流量预测",information:"口碑致力于为每个商家提供销售预测。基于预测结果，商家可以优化运营，降低成本，并改善用户体验。这次比赛中，我们将以恰当定义的销售预测问题为题。 我们鼓励创新的解法，帮助口碑成为更加智能的商业平台，更好地服务社会。同时，希望每位参赛选手都能享受到这次比赛带来的乐趣。",link:"dataset/detail.html"},
       			{title:"Iris 鸢尾花卉数据集",information:"在模式识别文献中，Iris 数据集恐怕是最通用也是最简单的数据集了。要学习分类技术，Iris 数据集绝对是最方便的途径。该数据集由Fisher于1936收集整理。",link:"#"},
       			{title:"泰坦尼克数据集",information:"泰坦尼克数据集也是全球数据科学殿堂中出镜率最高的数据集之一。借助一些教程和指导，泰坦尼克数据集可以让你深入了解数据科学。通过对类别、数字、文本等数据的结合，你能从该数据集中总结出最疯狂的想法。",link:"#"},
       			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},

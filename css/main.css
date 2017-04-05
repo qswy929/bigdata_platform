@@ -26,6 +26,10 @@ body {
  	padding-bottom: 60px;
  }
 
+ .container-margin-bottom-compact {
+ 	padding-bottom: 30px;
+ }
+
  .footer-margin-top {
  	margin-top: 15px;
  }
@@ -48,5 +52,8 @@ body {
  .input-style {
  	height: 38px;
  	font-size: 16px;
+ }
+ .container-pre {
+ 	white-space: pre-wrap;
  }
 

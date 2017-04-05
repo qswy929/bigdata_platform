@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+	  <title>数据集</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+   
+  	<!-- 引入样式，注意顺序 -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/iview/dist/styles/iview.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+    <style type="text/css">
+      body {
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+      #data_container a {
+        font-size: 12.5px;
+        padding-top: 13px;
+        padding-bottom: 9px !important;
+      }
+      #data_container a:hover {
+        color: #20BEFF;
+        background-color: white;
+      }
+      #data_container .li-active:hover {
+        border-bottom: 3px solid #20BEFF;
+      }
+      #data_container .a-ordinary {
+        color: black;
+        #padding-bottom: 11.5px !important;
+      }
+      #data_container .a-current {
+        color: #20BEFF;
+      }
+      #data_container .li-current {
+        border-bottom:3px solid #20BEFF;
+      }
+      #data_container button {
+        padding: 13px !important;
+        border-radius: 0px !important;
+        width:70px;
+        font-size: 12px;
+      }
+      .row-common-style {
+        background-color: #337ab7;
+        margin-bottom: 20px;
+      }
+      .row-height {
+        height:155px;
+      }
+      .color-white {
+        color: white;
+      }
+      .p-color {
+        color: rgb(191, 214, 229);
+      }
+      p {
+        margin: 0;
+      }
+      .p-font-large {
+        font-size: 17px !important;
+      }
+      span {
+        #margin-top: 42px;
+        font-size: 20px;
+      }
+      .p-title {
+        font-size: 13px;
+      }
+      .dataset-title {
+        font-size: 16.5px !important;
+      }
+      @media (min-width:768px) {
+        #data_container a {
+        font-size: 16px !important;
+        padding-top: 15px !important;
+        }
+        #data_container button {
+        padding: 11.5px !important;
+        border-radius: 0px !important;
+        font-size: 16px;
+        width: 88px;
+        }
+        .p-title {
+          font-size: 16px;
+        }
+        span {
+          #margin-top: 57px;
+          font-size: 34px;
+        }
+        .row-height {
+          height: 200px;
+        }
+        .dataset-title {
+          font-size: 18px !important;
+        }
+        .li-margin-right {
+        margin-right: 10px !important;
+        }
+        #data_container .nav li a{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        }
+      }
+      .row-title {
+        border: 1px solid #DEDFE0;
+        border-radius: 4px;
+      }
+      .div-padding-top {
+        padding-top: 15px;
+        padding-left: 15px;
+      }
+      .li-margin-right {
+        margin-right: 5px;
+      }
+      #data_container .nav li a{
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      #data_container .navbar-nav{
+        float: left !important;
+        margin: 0px !important;
+      }
+      #data_container .navbar-nav li{
+        float: left !important;
+      }
+      #data_container .navbar-right{
+        float: right !important;
+        margin-right: -15px !important;
+      }
+    </style>
+  </head>
+  <body>
+	<!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
+          <a class="navbar-brand navbar-brand-compact">大数据教学</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="#">教学任务</a></li>
+            <li><a href="../dataset.html">数据集</a></li>
+            <li><a href="#">作业提交</a></li>
+            <li><a href="../case.html">大数据案例</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" id="app">
+            <li><a href="../member/signup.html">注册</a></li>
+            <li><a v-text="ope_info" v-bind:href="url"></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="data_container">
+      <Row class="container-margin-bottom-compact">
+        <i-col span='18' offset='3' class="row-title">
+          <div class="row-height" :style="title_bg_style">
+            <div class="div-padding-top">
+              <span class="color-white" v-text="info.title"></span>
+              <p class="color-white p-title" v-text="info.subtitle"></p>
+            </div>
+          </div>
+          <!--<i-menu mode="horizontal" active-name="1">
+            <div class="layout-assistant">
+                <Menu-item name="1">数据集介绍</Menu-item>
+                <Menu-item name="2">下载</Menu-item>
+            </div>
+          <i-menu>
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <ul class="nav navbar-nav nav-no-padding-bottom">
+                <li class="active"><a href="#">介绍</a></li>
+                <li><a href="#">下载数据集</a></li>
+              </ul>
+            </div>
+          </nav> -->
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li class="li-current li-margin-right"><a class="a-current">数据介绍</a></li>
+              <li class="li-active"><a href="#" class="a-ordinary">数据集下载</a></li> 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><button type="button" class="btn btn-info" v-on:click="location.href='../tool/sql.html'">SQL分析</button></li>
+              <li><button type="button" class="btn btn-primary" v-on:click="location.href='../tool/rstudio'">RStudio</button></li>
+            </ul>
+          </div> 
+        </i-col>
+      </Row>
+
+      <Row class="container-margin-bottom">
+        <i-col span='18' offset='3'>
+          <Card>
+            <p slot="title" class="p-font-large">
+              描述
+            </p>
+            <div class="container-pre" v-text="info.detail"></div>
+            <div>
+              <template v-for="item in content_bg">
+                <img :src="item.src" class="img-responsive" />
+              </template>
+            </div>        
+         </Card>
+       </i-col>
+      </Row>
+    </div>
+
+    <!--footer-->
+    <footer>
+      <div class="container-fluid footer-margin-top">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="no-extra"><a href="#">关于平台</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">注意事项</a></li>
+                <li><a href="#" target="_blank">联系邮箱</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+            Copyright © 2017 Tongji All Rights Reserved.
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- vue.js -->
+    <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/iview/dist/iview.min.js"></script>
+    <script src="../js/userstatus.js" type="text/javascript"></script>
+
+   <script type="text/javascript">
+      new Vue({
+        el: '#data_container',
+        data:{
+          info:{
+            title:"IJCAI-17 口碑商家客流量预测",
+            subtitle:"预测2000家商家未来14天的客流",
+            detail:"背景 Background\n随着移动定位服务的流行，阿里巴巴和蚂蚁金服逐渐积累了来自用户和商家的海量线上线下交易数据。蚂蚁金服的O2O平台“口碑”用这些数据为商家提供了包括交易统计，销售分析和销售建议等定制的后端商业智能服务。举例来说，口碑致力于为每个商家提供销售预测。基于预测结果，商家可以优化运营，降低成本，并改善用户体验。\n这次比赛中，我们将以恰当定义的销售预测问题为题。我们鼓励创新的解法，帮助口碑成为更加智能的商业平台，更好地服务社会。同时，希望每位参赛选手都能享受到这次比赛带来的乐趣。\n\n问题 Statement\n预测客户流量对商家的经营管理至关重要。在口碑平台上，我们将客户流量定义为“单位时间内在商家使用支付宝消费的用户人次”。在这个问题中，我们将提供用户的浏览和支付历史，以及商家相关信息，并希望参赛选手可以以此预测所有商家在接下来14天内，每天的客户流量。\n我们鼓励参赛选手使用类似天气等额外的数据，并希望参赛选手能够将数据源共享在论坛中。\n\n数据 Data\n我们提供从2015.07.01到2016.10.31（除去2015.12.12）的商家数据，用户支付行为数据以及用户浏览行为数据。提供数据的类型统一为string类型，提交预测的类型为整形。文件统一为utf-8编码，没有标题行，并以“,”分隔的csv格式。\n\n1. shop_info：商家特征数据"
+          },
+          title_bg_style:{
+              background:"url(../img/dataset/1/dataset-cover.jpeg)",
+              "background-size":'100% 100%'
+            },
+          content_bg: [
+              {src:"../img/dataset/1/table1.png"}
+          ]
+        }
+    });
+    </script>
+  </body>
+</html>
