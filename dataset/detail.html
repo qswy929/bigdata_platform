@@ -174,7 +174,7 @@
 
     <div id="data_container">
       <Row class="container-margin-bottom-compact">
-        <i-col span='18' offset='3' class="row-title">
+        <i-col :md="{span: 18, offset: 3}" :xs='{span: 22, offset: 1}' class="row-title">
           <div class="row-height" :style="title_bg_style">
             <div class="div-padding-top">
               <span class="color-white" v-text="info.title"></span>
@@ -209,7 +209,7 @@
       </Row>
 
       <Row class="container-margin-bottom">
-        <i-col span='18' offset='3'>
+        <i-col :md="{span: 18, offset: 3}" :xs='{span: 22, offset: 1}'>
           <Card>
             <p slot="title" class="p-font-large">
               描述
