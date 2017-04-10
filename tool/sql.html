@@ -32,6 +32,16 @@
     </style>
     <!-- 以下为生成datatables用 -->
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <!-- 这里加入js代码 -->
+    <script type="text/javascript">
+      $(function(){ 
+        if(typeof($.cookie('JSESSIONID'))=="undefined")
+        {
+          window.location.href="../member/signin.html";
+        }
+      });
+    </script>
     <script type="text/javascript" src="https://cdn.bootcss.com/datatables/1.10.13/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/datatables/1.10.13/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css"/>
@@ -147,10 +157,15 @@ show tables;</div>
 
     <script src="../js/inceptorsql.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
-
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
-    
+      $(function(){ 
+        if(typeof($.cookie('JSESSIONID'))=="undefined")
+        {
+          window.location.href="../member/signin.html";
+        }
+      });
     </script>
+
   </body>
 </html>
