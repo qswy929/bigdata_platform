@@ -174,7 +174,7 @@
 
     <div id="data_container">
       <Row class="container-margin-bottom-compact">
-        <i-col :md="{span: 18, offset: 3}" :xs='{span: 22, offset: 1}' class="row-title">
+        <i-col :lg="{span: 18, offset: 3}" :md="{span: 20, offset: 2}" :xs="{span: 22, offset: 1}" class="row-title">
           <div class="row-height" :style="title_bg_style">
             <div class="div-padding-top">
               <span class="color-white" v-text="info.title"></span>
@@ -202,14 +202,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><button type="button" class="btn btn-success" v-on:click="location.href='../tool/sql.html'">SQL</button></li>
-              <li><button type="button" class="btn btn-info" v-on:click="location.href='../tool/rstudio.html'">R</button></li>
+              <li><button type="button" class="btn btn-info" v-on:click="isSignedin()">R</button></li>
             </ul>
           </div> 
         </i-col>
       </Row>
 
       <Row class="container-margin-bottom">
-        <i-col :md="{span: 18, offset: 3}" :xs='{span: 22, offset: 1}'>
+        <i-col :lg="{span: 18, offset: 3}" :md="{span: 20, offset: 2}" :xs="{span: 22, offset: 1}">
           <Card>
             <p slot="title" class="p-font-large">
               描述
@@ -272,8 +272,20 @@
           content_bg: [
               {src:"../img/dataset/1/table1.png"}
           ]
+        },
+        methods: {
+          isSignedin: function(){
+            if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
+            {
+              window.open="../tool/rstudio/";
+            }
+            else
+            {
+              window.location.href="../member/signin.html";
+            }
+          }
         }
-    });
+      });
     </script>
   </body>
 </html>
