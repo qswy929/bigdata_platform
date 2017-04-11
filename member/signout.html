@@ -42,30 +42,23 @@
               if(response.body=="Ok") 
               {
                 $.cookie('JSESSIONID',null,{path:"/", expires: -1});
+                try{
+                  $.cookie('user-id',null,{path:"/", expires: -1});
+                }
+                catch(err)
+                {
+
+                }     
               }
               else
               {
                 alert("抱歉，注销失败！");
               }
-              if(document.referrer!="")
-              {
-                self.location=document.referrer;
-              }
-              else
-              {
-                window.location.href="../index.html";  
-              }             
+              window.location.href="../index.html";             
             }, function(response){
                 // 响应错误回调
-                this.message="抱歉，服务器无响应！";
-                if(document.referrer!="")
-                {
-                  self.location=document.referrer;
-                }
-                else
-                {
-                  window.location.href="../index.html";               
-                }
+                alert("抱歉，服务器无响应！");
+                window.location.href="../index.html";               
             });
           }
         },
