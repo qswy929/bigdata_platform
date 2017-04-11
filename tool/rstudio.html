@@ -26,7 +26,7 @@
 
     <!--正文内容-->
     <div id="app" class="container-fluid">
-      <h3 v-text="message"></h3>
+      <h4 v-text="message"></h4>
     </div>
 
     <script src="../js/jquery-3.1.1.min.js"></script>
@@ -42,36 +42,22 @@
       new Vue ({
         el: '#app',
         data : {
-          message:'跳转中……',
-          apiUrl: "auth-public-key"
+          message:'跳转中……'
         },
         methods: {
           signin: function(){
             if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
             {
-              this.$http.get(this.apiUrl).then(function(response){
-                // 响应成功回调
-                if(response.body!="")
-                {
-                  var chunks = response.body.split(':', 2);
-                  var exp = chunks[0];
-                  var mod = chunks[1];
-                  var encrypted = encrypt(payload, exp, mod);
-                }
-              }, function(response){
-                        // 响应错误回调
-                        this.message="抱歉，跳转失败！";
-                    });
-            }
+              window.location.href="/rstudio/";
             else
             {
-
+              window.location.href="../member/signin.html";
             }
           }
         },
         mounted: function() {
           //alert($.cookie('username'))
-          this.urlRoute();
+          this.signin();
         }
       });
     </script>
