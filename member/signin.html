@@ -192,6 +192,7 @@
                     {
                       var payload = this.info.username + "\n" + this.info.passwd;
                       var chunks = response.body.split(':', 2);
+                      console.log(chunks);
                       var exp = chunks[0];
                       var mod = chunks[1];
                       var encrypted = encrypt(payload, exp, mod);
