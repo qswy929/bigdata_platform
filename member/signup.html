@@ -81,19 +81,19 @@
                   <p class="p-info" v-text="message"></p>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="form_nickname" placeholder="用户名(至少6位英文字符)" class="form-control input-style" id="form_nickname" v-model="info.nickname" pattern="^[a-zA-Z][a-zA-Z0-9_]{5,20}$"required />
+                  <input type="text" name="form_nickname" placeholder="用户名(6-20位字母数字)" class="form-control input-style" id="form_nickname" v-model="info.nickname" pattern="^[a-zA-Z](?=.*\d)[a-zA-Z0-9_]{5,20}$" required oninvalid="setCustomValidity('用户名由字母、数字、下划线组成，以字母开头，至少包含1位数字，长度6-20位')" onchange="try{setCustomValidity('')}catch(e){}"/>
                 </div>
   	            <div class="form-group">
   	               <input type="text" name="form_stuid" placeholder="学/工号(请确保同济邮箱已开通)" class="form-control input-style" id="form_stuid" v-model="info.stuid" pattern="[0-9]{5,10}" required />
   	            </div>
   	            <div class="form-group">
-  	              <input type="password" name="form_password" placeholder="密码" class="form-control input-style" id="form_password" v-model="info.passwd" maxlength="20" required />
+  	              <input type="password" name="form_password" placeholder="密码(6-16位非空字符)" class="form-control input-style" id="form_password" v-model="info.passwd" pattern="\S{6,16}$" required />
   	            </div>
                 <div class="form-group">
-                  <input type="password" name="form_repassword" placeholder="确认密码" class="form-control input-style" id="form_repassword" v-model="info.repasswd" maxlength="20" required />
+                  <input type="password" name="form_repassword" placeholder="确认密码" class="form-control input-style" id="form_repassword" v-model="info.repasswd" pattern="\S{6,16}$" required />
                 </div>
                 <div class="form-group">
-                  <input type="text" name="form_invitation" placeholder="内测邀请码" class="form-control input-style" id="form_invitation" v-model="info.invitation" maxlength="6" required />
+                  <input type="text" name="form_invitation" placeholder="邀请码(字母小写)" class="form-control input-style" id="form_invitation" v-model="info.invitation" pattern="[a-z0-9]{6}$" required />
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-info btn-block text-lg">注&nbsp;&nbsp;册
