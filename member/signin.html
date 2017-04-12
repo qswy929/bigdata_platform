@@ -199,11 +199,9 @@
 
                       this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
                         // 响应成功回调
-                        if(document.referrer!="")
+                        if(document.referrer!="" && document.referrer.indexOf("signup")!=-1)
                         {
-                          
-                          console.log(document.referrer);
-                          //self.location=document.referrer;
+                          self.location=document.referrer;
                         }
                         else
                         {
