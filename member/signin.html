@@ -199,10 +199,10 @@
 
                       this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
                         // 响应成功回调
-                        if(document.referrer!="" && document.referrer!="signup.html")
+                        if(document.referrer!="")
                         {
                           
-                          alert(document.referrer);
+                          console.log(document.referrer);
                           self.location=document.referrer;
                         }
                         else
