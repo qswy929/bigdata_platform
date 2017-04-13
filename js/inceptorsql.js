@@ -38,7 +38,6 @@ var editor = ace.edit("editor");
         try {
           table.destroy();
           table.destroy();  //一定要执行两次
-          $("#container_loading").css('display','inherit');
           var tb="<table id='list' class='display' cellspacing='0' width='100%'></table>";
           $("#container_table").html(tb);
         }
@@ -57,6 +56,7 @@ var editor = ace.edit("editor");
       
       function loadTable(dbName, query){
           $("button").attr({"disabled":"disabled"});
+          $("#container_loading").css('display','inherit');
           var addr = '../api/v1/inceptorsql';
 
           re = new RegExp("from","g"); //定义正则表达式
