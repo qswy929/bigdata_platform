@@ -26,7 +26,7 @@ var editor = ace.edit("editor");
         }
       }
 
-      function execSQL(dbName){ 
+      function execSQL(dbName){    
         queries = editor.getValue().split(";");
         len = queries.length;
         if(queries[len-1]=="")  //最后一项为空
@@ -38,6 +38,7 @@ var editor = ace.edit("editor");
         try {
           table.destroy();
           table.destroy();  //一定要执行两次
+          $("#container_loading").css('display','inherit');
           var tb="<table id='list' class='display' cellspacing='0' width='100%'></table>";
           $("#container_table").html(tb);
         }
@@ -73,9 +74,8 @@ var editor = ace.edit("editor");
             success: function(json){
               try {
                 //console.log(json.columns);
-
-                json = JSON.parse(json);
-                //alert(json.columns);
+                $("#container_loading").css('display','none');
+                json = JSON.parse(json); 
                 table = $("#list").DataTable( {
                 "data": json.data,
                 "columns": json.columns,
