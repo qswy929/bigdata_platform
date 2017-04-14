@@ -3,7 +3,7 @@
   <head>
   	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>数据集</title>
+  	<title>教学任务</title>
   	<link rel="icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -38,8 +38,10 @@
           text-decoration: none;          
       } 
       .row-common-style {
-        background-color: #337ab7;
-        background-image: url(img/dataset/dataset_bg.png);
+        #background-color: #C0392B;
+        background-image: url(img/task/task_bg.jpg);
+        background-size:cover;
+        background-position: center;
         margin-bottom: 20px;
       }
       .row-height {
@@ -106,8 +108,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li><a href="index.html">首页</a></li>
-            <li><a href="task.html">教学任务</a></li>
-            <li class="active"><a href="#">数据集</a></li>
+            <li class="active"><a href="#">教学任务</a></li>
+            <li><a href="dataset.html">数据集</a></li>
             <li><a href="#">作业提交</a></li>
             <li><a href="case.html">大数据案例</a></li>
             <li><a href="#">FAQ</a></li>
@@ -122,15 +124,18 @@
 
     <div class="container-fluid">
       <div class="row row-common-style row-height text-center">
-        <h1 class="color-white">数据集</h1>
-        <p class="p-color p-title">这里有各种类型的数据集，并提供详细的描述信息</p>
+        <h1 class="color-white">教学任务</h1>
+        <p class="p-color p-title">各位学员可不要忘了查看每周的教学任务</p>
       </div>
     </div>
 
 
     <div id="datasets_container">
-    	<div id="datasets">
-    		<dataset-item v-for="dataset in datasets" :todo="dataset"></dataset-item>
+      <div class="col-lg-3">
+
+      </div>
+    	<div id="datasets" class="col-lg-9">
+    		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
           <Icon type="load-c" size=28></Icon>
@@ -158,9 +163,9 @@
     <script type="text/javascript" src="js/iview.min.js"></script>
     <script type="text/javascript" src="js/vue-mugen-scroll.min.js"></script>
     <script>
-      Vue.component("dataset-item",{
+      Vue.component("task-item",{
       	props:['todo'],
-      	template:"<Row><Col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a :href='todo.link'><p>{{todo.information}}</p></a></Card></Col></Row>"
+      	template:"<Row><Col><Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><p slot='extra'>{{todo.date}}</p><a target='_blank' :href='todo.link'><p>{{todo.link}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop",
@@ -174,19 +179,12 @@
       var app = new Vue({
       	el:"#datasets_container",
       	data:{
-      		datasets:[
-      			{title:"IJCAI-17 口碑商家客流量预测",information:"口碑致力于为每个商家提供销售预测。基于预测结果，商家可以优化运营，降低成本，并改善用户体验。这次比赛中，我们将以恰当定义的销售预测问题为题。 我们鼓励创新的解法，帮助口碑成为更加智能的商业平台，更好地服务社会。同时，希望每位参赛选手都能享受到这次比赛带来的乐趣。",link:"dataset/detail.html"},
-      			{title:"Iris 鸢尾花卉数据集",information:"在模式识别文献中，Iris 数据集恐怕是最通用也是最简单的数据集了。要学习分类技术，Iris 数据集绝对是最方便的途径。该数据集由Fisher于1936收集整理。",link:"#"},
-      			{title:"泰坦尼克数据集",information:"泰坦尼克数据集也是全球数据科学殿堂中出镜率最高的数据集之一。借助一些教程和指导，泰坦尼克数据集可以让你深入了解数据科学。通过对类别、数字、文本等数据的结合，你能从该数据集中总结出最疯狂的想法。",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"}
-      		],
+          tasks:[
+            {date:"2017-04-14",title:"这是任务4",link:"http://dwz.cn/5KGeMN"},
+            {date:"2017-04-07",title:"这是任务3",link:"http://dwz.cn/5KGoPA"},
+            {date:"2017-04-05",title:"这是任务2",link:"http://dwz.cn/5KGpL4"},
+            {date:"2017-04-01",title:"这是任务1",link:"#"},
+          ],
           loadingCount:0,
           loading:false,
           isActive:false,
@@ -198,7 +196,7 @@
         	  // ... the code you wanna run to fetch data
         	  if(this.loadingCount<10)
             {
-    		  	  this.datasets.push({title:"我是一个标题",information:"这还是说明这还是说明这还是说明"})
+    		  	  this.tasks.push({date:"2017-03-20",title:"这是任务",link:"#"})
               this.loadingCount = this.loadingCount + 1
     		    }
             else
