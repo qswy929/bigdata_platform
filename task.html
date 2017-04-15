@@ -51,7 +51,7 @@
         color: white;
       }
       .p-color {
-        color: rgb(191, 214, 229);
+        color: rgb(245, 189, 168);
       }
       p {
         margin: 0;
@@ -65,6 +65,9 @@
       }
       .dataset-title {
         font-size: 16.5px !important;
+      }
+      .task_margin_top {
+      	display: none;
       }
       @media (min-width:768px) {
         .p-title {
@@ -80,7 +83,12 @@
         .dataset-title {
           font-size: 18px !important;
         }
+        .task_margin_top {
+		  margin-top: 40px;
+		  display: inherit;
+        }
       }
+
     </style>
   </head>
 
@@ -130,11 +138,17 @@
     </div>
 
 
-    <div id="datasets_container">
-      <div class="col-lg-3">
-
+    <div id="tasks_container">
+      <div class="col-lg-3 col-sm-3 task_margin_top">
+		<ul class="list-group">
+		  <li href="#" class="list-group-item">按时间筛选</li>
+		  <li class="list-group-item list-group-item-success">2017年4月</li>
+		  <li class="list-group-item list-group-item-info">2017年3月</li>
+		  <li class="list-group-item list-group-item-warning">2017年2月</li>
+		  <li class="list-group-item list-group-item-danger">2017年1月</li>
+		</ul>
       </div>
-    	<div id="datasets" class="col-lg-9">
+    	<div id="datasets" class="col-lg-9 col-sm-9">
     		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
@@ -177,7 +191,7 @@
         }
       });
       var app = new Vue({
-      	el:"#datasets_container",
+      	el:"#tasks_container",
       	data:{
           tasks:[
             {date:"2017-04-14",title:"这是任务4",link:"http://dwz.cn/5KGeMN"},
