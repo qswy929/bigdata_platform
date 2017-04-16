@@ -32,7 +32,7 @@
       .loadingHide {
         display: none;
       }
-      #datasets_container 
+      #tasks_container 
         a,a:visited,a:hover,a:active { /*全部状态都一样的效果*/
           color: grey; 
           text-decoration: none;          
@@ -66,8 +66,12 @@
       .task-title {
         font-size: 16.5px !important;
       }
-      .task-margin-top {
+      .task-display {
       	display: none;
+      }
+      .text-margin {
+          margin-top: 8px;
+          margin-bottom: 25px;
       }
       @media (min-width:768px) {
         .p-title {
@@ -83,12 +87,8 @@
         .task-title {
           font-size: 18px !important;
         }
-        .task-margin-top {
-		      margin-top: 25px;
+        .task-display {
 		      display: inherit;
-        }
-        .text-margin-top {
-        	margin-top: 8px;
         }
       }
 
@@ -112,7 +112,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
-          <a class="navbar-brand navbar-brand-compact">大数据教学</a>
+          <a class="navbar-brand navbar-brand-compact">Parthenon</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -143,7 +143,7 @@
 
     <div id="tasks_container">
       <div class="col-lg-3 col-sm-3">
-        <div class="text-center text-margin-top">
+        <div class="text-center text-margin">
           <i-button  @click='modal = true' type="primary" v-if="publish.isShow" long>发布任务</i-button>
         </div>
         <Modal
@@ -153,15 +153,15 @@
 			    <i-input v-model="publish.title" placeholder="请输入标题"></i-input>
 			    <i-input v-model="publish.url" placeholder="地址 http(s)://" class="footer-margin-top"></i-input>
         </Modal>
-		<ul class="list-group task-margin-top">
-		  <li href="#" class="list-group-item">按时间筛选</li>
-		  <li class="list-group-item list-group-item-success">2017年4月</li>
-		  <li class="list-group-item list-group-item-info">2017年3月</li>
-		  <li class="list-group-item list-group-item-warning">2017年2月</li>
-		  <li class="list-group-item list-group-item-danger">2017年1月</li>
-		</ul>
+    		<ul class="list-group task-display">
+    		  <li href="#" class="list-group-item">按时间筛选</li>
+    		  <li class="list-group-item list-group-item-success">2017年4月</li>
+    		  <li class="list-group-item list-group-item-info">2017年3月</li>
+    		  <li class="list-group-item list-group-item-warning">2017年2月</li>
+    		  <li class="list-group-item list-group-item-danger">2017年1月</li>
+    		</ul>
       </div>
-    	<div id="datasets" class="col-lg-9 col-sm-9">
+    	<div class="col-lg-9 col-sm-9">
     		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
