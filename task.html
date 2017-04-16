@@ -112,7 +112,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
-          <a class="navbar-brand navbar-brand-compact">Parthenon</a>
+          <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -195,13 +195,7 @@
       	template:"<Row><Col><Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>{{todo.title}}</p><p slot='extra'>{{todo.date}}</p><a target='_blank' :href='todo.link'><p>{{todo.link}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
-        el:"#backtop",
-        methods:{
-          back:()=>{
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-          }
-        }
+        el:"#backtop"
       });
       var app = new Vue({
       	el:"#tasks_container",

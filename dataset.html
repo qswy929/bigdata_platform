@@ -99,7 +99,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
-          <a class="navbar-brand navbar-brand-compact">Parthenon</a>
+          <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -129,7 +129,7 @@
 
 
     <div id="datasets_container">
-    	<div id="datasets">
+    	<div>
     		<dataset-item v-for="dataset in datasets" :todo="dataset"></dataset-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
@@ -163,13 +163,7 @@
       	template:"<Row><Col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><a :href='todo.link'><p>{{todo.information}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
-        el:"#backtop",
-        methods:{
-          back:()=>{
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-          }
-        }
+        el:"#backtop"
       });
       var app = new Vue({
       	el:"#datasets_container",
