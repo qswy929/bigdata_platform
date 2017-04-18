@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SQL执行</title>
+    <title>在线编辑器</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -38,7 +38,7 @@
       $(function(){ 
         if(typeof($.cookie('JSESSIONID'))=="undefined")
         {
-          window.location.href="../member/signin.html";
+          //window.location.href="../member/signin.html";
         }
       });
     </script>
@@ -95,6 +95,17 @@
           <a class="navbar-brand navbar-brand-sm">数据集：口碑客流量</a>
           <ul class="nav navbar-right-fixed">
             <li>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  SQL
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">SQL</a></li>
+                  <li><a href="#">R</a></li>
+                  <li><a href="#">Python</a></li>
+                </ul>
+              </div>
               <button type="button" id="btn_next" class="btn btn-info navbar-btn" style="display:none" onclick="execSQL_Next('koubei')">下一步</button>
               <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">全部提交</button>
             </li>
