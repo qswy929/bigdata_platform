@@ -25,10 +25,12 @@
       }
       @media (min-width:768px) {
         #editor {
-          font-size: 16px;
+          font-size: 15.5px;
         }
       }
-
+      .navbar-margin {
+        margin-left: -15px;
+      }
     </style>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
@@ -38,7 +40,7 @@
       $(function(){ 
         if(typeof($.cookie('JSESSIONID'))=="undefined")
         {
-          //window.location.href="../member/signin.html";
+          window.location.href="../member/signin.html";
         }
       });
     </script>
@@ -77,7 +79,7 @@
             <li><a href="../task.html">教学任务</a></li>
             <li><a href="../dataset.html">数据集</a></li>
             <li><a href="#">作业提交</a></li>
-            <li><a href="../case.html">大数据案例</a></li>
+            <li><a href="../case.html">课程案例</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="app">
@@ -92,12 +94,12 @@
       <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse">
-          <a class="navbar-brand navbar-brand-sm">数据集：口碑客流量</a>
+          <a class="navbar-brand navbar-brand-sm navbar-margin">口碑客流量</a>
           <ul class="nav navbar-right-fixed">
             <li>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  SQL
+                  <span>SQL</span>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
@@ -107,7 +109,7 @@
                 </ul>
               </div>
               <button type="button" id="btn_next" class="btn btn-info navbar-btn" style="display:none" onclick="execSQL_Next('koubei')">下一步</button>
-              <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">全部提交</button>
+              <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">提 交</button>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

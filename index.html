@@ -16,7 +16,7 @@
       body{
         padding-top: 50px !important;
       }
-      .title-cover2 {
+      .title-cover {
         color: white;
         font-size: 24px;
         margin: 0 0 5px;
@@ -24,11 +24,6 @@
       .sub_title-cover2 {
         color:#e49f6e;
         font-size: 16px;
-        margin: 0 0 5px;
-      }
-      .title-cover3 {
-        color: white;
-        font-size: 24px;
         margin: 0 0 5px;
       }
       .sub_title-cover3 {
@@ -48,16 +43,18 @@
         #transform:translateX(-50%);
         #transform:translateY(-50%);
       }
+      .glyphicon-chevron-left{
+        top: 49% !important;
+      }
+      .glyphicon-chevron-right{
+        top: 49% !important;
+      }
       @media (min-width:992px){
-        .title-cover2 {
-          font-size: 34px;
+        .title-cover {
+          font-size: 33px;
         }
         .sub_title-cover2 {
           font-size: 20px;
-        }
-        .title-cover3 {
-          color: white;
-          font-size: 34px;
         }
         .sub_title-cover3 {
           color:#86c1d7;
@@ -100,7 +97,7 @@
             <li><a href="task.html">教学任务</a></li>
             <li><a href="dataset.html">数据集</a></li>
             <li><a href="#">作业提交</a></li>
-            <li><a href="case.html">大数据案例</a></li>
+            <li><a href="case.html">课程案例</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="app">
@@ -134,7 +131,7 @@
               <div id="idx_pic2" class="div-bg" style="background-image:url('img/index/cover2.png')">
                 <div class="position-title2">
                   <div class="col-md-6 col-md-offset-3 text-center">
-                    <p class="title-cover2">大数据教学实践平台</p>
+                    <p class="title-cover">数据科学与大数据教学实践平台</p>
                     <p class="sub_title-cover2">发现数据之美</p>
                   </div>
                 </div> 
@@ -144,7 +141,7 @@
               <div id="idx_pic3" class="div-bg" style="background-image:url('img/index/cover3.png')">
                 <div class="position-title3">
                   <div class="col-md-6 col-md-offset-3 text-center">
-                    <p class="title-cover3">大数据教学实践平台</p>
+                    <p class="title-cover">数据科学与大数据教学实践平台</p>
                     <p class="sub_title-cover3">在这里拥抱大数据</p>
                   </div>
                 </div> 
@@ -167,24 +164,30 @@
 
     <div class="container-fluid text-center container-margin-top" style="background-color:#f3f6f9">
 
-        <div class="col-lg-4 container-margin-bottom">
-          <img class="img-circle" src="img/index/study.png" width="140" height="140">
+        <div class="col-lg-3 container-margin-bottom">
+          <img src="img/index/study.png" width="140" height="140">
           <h2>教学</h2>
           <p>告别传统的“古板”教学模式，光学不练怎么行？在这里会发布与课堂内容同步的课后教学任务，学生们可要及时查看哦！</p>
           <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>  -->
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 container-margin-bottom">
-          <img class="img-circle" src="img/index/contest.png" width="140" height="140">
+        </div>
+        <div class="col-lg-3 container-margin-bottom">
+          <img src="img/index/practice.png" width="140" height="140">
+          <h2>实践</h2>
+          <p>我们提供各种数据，利用课堂上学到的数据分析的方法，在平台的在线编辑器中亲自实践，免去各种软件工具的安装。</p>
+          <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+        </div>
+        <div class="col-lg-3 container-margin-bottom">
+          <img src="img/index/contest.png" width="140" height="140">
           <h2>竞赛</h2>
           <p>有竞争才有进步。我们会不定期的举行各种数据集下的大数据竞赛，让大家通过比赛发现蕴藏在数据之后的真相。</p>
           <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4 container-margin-bottom">
-          <img class="img-circle" src="img/index/case.png" width="140" height="140">
+        </div>
+        <div class="col-lg-3 container-margin-bottom">
+          <img src="img/index/case.png" width="140" height="140">
           <h2>案例</h2>
           <p>所谓“教学相长”，我们会定期更新有关大数据的各种案例，看看别人的思路对你是否有所启发。通过学习案例实现进步。</p>
           <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
-        </div><!-- /.col-lg-4 -->
+        </div>
       
     </div>
 
