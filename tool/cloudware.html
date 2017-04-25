@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <title>在线编辑器</title>
+    <title>云件环境</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -97,29 +97,14 @@
       <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse">
-          <a class="navbar-brand navbar-brand-sm navbar-margin">口碑客流量</a>
-          <ul class="nav navbar-right-fixed">
-            <li>
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span>R</span>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="sql.html">SQL</a></li>
-                  <li><a href="#">R</a></li>
-                  <li class="disabled"><a href="#">Python</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+          <a class="navbar-brand navbar-brand-sm navbar-margin">云件环境</a>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
 
     <!--正文内容-->
-    <iframe id="rstudio" width="100%" scrolling="auto" frameborder="0" src="rstudio/"></iframe>
+    <iframe id="cloudware" width="100%" scrolling="auto" frameborder="0" src="http://cloudwarehub.com"></iframe>
 
     <!--<div class="container-fluid">
       <div class="row">
@@ -164,6 +149,7 @@ show tables;</div>
     <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
+
     <script type="text/javascript">
       $(document).ready(function(){ 
         changeFrameHeight();
@@ -173,8 +159,9 @@ show tables;</div>
       });
       function changeFrameHeight() {
         var height = $(window).height();
-        $("#rstudio").css('height',height-100);
+        $("#cloudware").css('height',height-100);
       }
     </script>
+
   </body>
 </html>
