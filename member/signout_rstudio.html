@@ -54,7 +54,8 @@
               {
                 //alert("请勿重复注销！");
               }
-              window.close();     
+              //window.close();  
+              window.parent.location.href="../index.html";   
             }, function(response){
                 // 响应错误回调
                 alert("抱歉，服务器无响应！");
