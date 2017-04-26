@@ -49,9 +49,27 @@
       .glyphicon-chevron-right{
         top: 49% !important;
       }
+      @media (min-width:768px){
+        .title-cover {
+          font-size: 30px;
+        }
+        .sub_title-cover2 {
+          font-size: 19px;
+        }
+        .sub_title-cover3 {
+          color:#86c1d7;
+          font-size: 19px;
+        }
+        .position-title2{
+          top:38%;
+        }
+        .position-title3{
+          top:14%;
+        }
+      }
       @media (min-width:992px){
         .title-cover {
-          font-size: 33px;
+          font-size: 32.5px;
         }
         .sub_title-cover2 {
           font-size: 20px;
@@ -67,6 +85,7 @@
           top:14%;
         }
       }
+
     </style>
     
   </head>
@@ -94,11 +113,32 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">首页</a></li>
-            <li><a href="task.html">教学任务</a></li>
+            <li><a href="task.html">最新任务</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="practice.html">在线实践</a></li>
             <li><a href="dataset.html">数据集</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li><a href="case.html">课程案例</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="#">作业提交</a></li>
+            <li class="visible-lg-block"><a href="#">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="#">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="case.html">大数据案例</a></li>
+                <li><a href="#">作业提交</a></li>
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="app">
             <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
