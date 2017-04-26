@@ -66,9 +66,6 @@
       .task-title {
         font-size: 16.5px !important;
       }
-      .task-display {
-      	display: none;
-      }
       .text-margin {
           margin-top: 8px;
           margin-bottom: 25px;
@@ -86,9 +83,6 @@
         }
         .task-title {
           font-size: 18px !important;
-        }
-        .task-display {
-		      display: inherit;
         }
       }
 
@@ -135,7 +129,7 @@
 
     <div class="container-fluid">
       <div class="row row-common-style row-height text-center">
-        <h1 class="color-white">教学任务</h1>
+        <h1 class="color-white">最新任务</h1>
         <p class="p-color p-title">各位学员可不要忘了查看每周的教学任务</p>
       </div>
     </div>
@@ -153,15 +147,32 @@
 			    <i-input v-model="publish.title" placeholder="请输入标题"></i-input>
 			    <i-input v-model="publish.url" placeholder="地址 http(s)://" class="footer-margin-top"></i-input>
         </Modal>
-    		<ul class="list-group task-display">
+    		<ul class="list-group hidden-xs">
     		  <li href="#" class="list-group-item">按时间筛选</li>
-    		  <li class="list-group-item list-group-item-success">2017年4月</li>
-    		  <li class="list-group-item list-group-item-info">2017年3月</li>
-    		  <li class="list-group-item list-group-item-warning">2017年2月</li>
-    		  <li class="list-group-item list-group-item-danger">2017年1月</li>
+    		  <li class="list-group-item list-group-item-success">2017年5月</li>
+    		  <li class="list-group-item list-group-item-info">2017年4月</li>
+    		  <li class="list-group-item list-group-item-warning">2017年3月</li>
+    		  <li class="list-group-item list-group-item-danger">2017年2月</li>
     		</ul>
       </div>
     	<div class="col-lg-9 col-sm-9">
+        <!--课件-->
+        <span class="span-h2">课件</span>
+          <Row>
+            <i-col>
+              <Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>《数据科学通识导论》课程汇总(更新中)</p><a href='task/courseware.html?course=0'><p>公众号文章+PPT下载</p></a>
+              </Card>
+            </i-col>
+          </Row>
+          <Row>
+            <i-col>
+              <Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>《大数据原理与实践》课程汇总(已完结)</p><a href='task/courseware.html?course=1'><p>公众号文章+PPT下载</p></a>
+              </Card>
+            </i-col>
+          </Row>
+
+        <!--任务-->
+        <span class="span-h2">教学任务</span>
     		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">

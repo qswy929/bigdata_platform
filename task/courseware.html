@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>课件</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->   
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <style type="text/css">
+      body{
+        padding-top: 50px !important;
+      }
+      .backtop{
+        #position: fixed;
+        #bottom: 50px;
+        #right: 20px;
+        #padding: 10px;
+        height: 40px;
+        width: 45px;
+        background-color: rgba(0,0,0,0.45);
+        text-align: center;
+        border-radius: 2px;
+      }
+      .loadingHide {
+        display: none;
+      }
+      #course_container a,a:visited,a:hover,a:active { /*全部状态都一样的效果*/
+          //color: grey; 
+          //text-decoration: none;          
+      } 
+      .row-common-style {
+        #background-color: #C0392B;
+        background-image: url(../img/task/task_bg.jpg);
+        background-size:cover;
+        background-position: center;
+        margin-bottom: 20px;
+      }
+      .row-height {
+        height:155px;
+      }
+      .color-white {
+        color: white;
+      }
+      .p-color {
+        color: rgb(255, 196, 174);
+      }
+      p {
+        margin: 0;
+      }
+      h1 {
+        margin-top: 42px;
+        font-size: 37px;
+      }
+      .p-title {
+        font-size: 16px;
+      }
+      .task-title {
+        font-size: 16.5px !important;
+      }
+      .text-margin {
+          margin-top: 8px;
+          margin-bottom: 25px;
+      }
+      @media (min-width:768px) {
+        .p-title {
+          font-size: 24px;
+        }
+        h1 {
+          margin-top: 57px;
+          font-size: 53px;
+        }
+        .row-height {
+          height: 220px;
+        }
+        .task-title {
+          font-size: 18px !important;
+        }
+      }
+
+    </style>
+    
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
+          <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../task.html">最新任务</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="../practice.html">在线实践</a></li>
+            <li><a href="../dataset.html">数据集</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="#">作业提交</a></li>
+            <li class="visible-lg-block"><a href="#">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="#">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="case.html">大数据案例</a></li>
+                <li><a href="#">作业提交</a></li>
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" id="app">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
+            <li><a href="member/signup.html">注册</a></li>
+            <li><a v-text="ope_info" v-bind:href="url"></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row row-common-style row-height text-center">
+        <h1 class="color-white">课件汇总</h1>
+        <p class="p-color p-title">各位学员可不要忘了下载每周新鲜出炉的课件</p>
+      </div>
+    </div>
+
+
+    <!--正文内容-->
+    <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 container-margin-bottom-compact">    
+      <div class="panel panel-default" id="courseware_container">
+      <!-- Default panel contents -->
+        <div class="panel-heading"><h4 v-text="cur_data.name"></h4></div>
+      <!-- Table -->
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>内容</th>
+                <th>PPT下载</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="(ware,index) in cur_data.ware">
+                <tr>
+                  <td v-text="index+1"></td>
+                  <td><a target="_blank" v-text="ware.title" :href="ware.content"></a></td>
+                  <td><a target="_blank" v-text="ware.download" :href="ware.download" ></a></td>
+                <tr>
+              </template>
+              <!--<tr>
+                <td>1</td>
+                <td><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzIxOTU2MjQ0Mw==&mid=2247483822&idx=1&sn=b0c2e24743eab141f017b5f5cc75aec9&scene=21#wechat_redirect">Overview</a></td>
+                <td><a target="_blank" href="https://pan.baidu.com/s/1dE0UqjB">https://pan.baidu.com/s/1dE0UqjB</a></td>
+              </tr>-->
+            </tbody>   
+          </table>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+    
+    <!--footer-->
+    <footer>
+      <div class="container-fluid footer-margin-top">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="no-extra"><a href="#">关于平台</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">注意事项</a></li>
+                <li><a href="#" target="_blank">联系邮箱</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+            Copyright © 2017 Tongji All Rights Reserved.
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+   
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- vue.js -->
+    <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
+    <script src="../js/userstatus.js" type="text/javascript"></script>
+    <!-- 课程信息存在以下文件中 -->
+    <script src="../js/data/courseware.js" type="text/javascript"></script>
+
+    <!-- 这里加入js代码 -->
+    <script type="text/javascript">
+      var courseware = new Vue({
+        el:"#courseware_container",
+        data:{
+          cur_data:datasci
+        },
+        methods:{
+          getUrlParams: function(){
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+              hash = hashes[i].split('=');
+              vars.push(hash[0]);
+              vars[hash[0]] = hash[1];
+            }
+            return vars;
+          },
+          getUrlParam: function(name){
+            return this.getUrlParams()[name];
+          },
+          dataBind: function() {
+            var course = this.getUrlParam('course');
+            if(course=='1')
+            {
+              this.cur_data=bigdata;
+            }
+          }
+        },
+        mounted: function() {
+          //alert($.cookie('username'))
+          this.dataBind();
+        }
+      });
+    </script>
+  </body>
+</html>

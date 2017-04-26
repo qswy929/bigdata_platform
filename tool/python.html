@@ -102,17 +102,17 @@
             <li>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span>SQL</span>
+                  <span>Python</span>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">SQL</a></li>
+                  <li><a href="sql.html">SQL</a></li>
                   <li><a href="r.html">R</a></li>
                   <li class="disabled"><a href="#">Python</a></li>
                 </ul>
               </div>
               <button type="button" id="btn_next" class="btn btn-info navbar-btn" style="display:none" onclick="execSQL_Next('koubei')">下一步</button>
-              <button type="button" class="btn btn-default navbar-btn" onclick="execSQL('koubei')">提 交</button>
+              <button type="button" class="btn btn-default navbar-btn disabled" onclick="">提 交</button>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -126,13 +126,9 @@
         <!--<div class="col-md-12">
           <div class="textarea" contenteditable="true" style="height:400px;border:1px solid"><br /></div>
         </div> -->
-        <div id="editor">-- SQL编辑器 Beta 1
--- 1.所有数据表为只读，且不能创建新表
--- 2.一次提交多条语句时，分步每步执行一条
--- 3.修改未执行的语句后，需要重新全部提交才能生效
+        <div id="editor"># Python编辑器 Beta 1
 
--- 以下操作查看该数据集的所有表
-show tables;</div>
+</div>
       </div>
     </div>
     <div id="container_loading" class="container-margin-top" style="display:none">
@@ -178,7 +174,7 @@ show tables;</div>
     <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
 
-    <script src="../js/sql.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/python.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
 
   </body>

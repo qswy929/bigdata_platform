@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>大数据案例</title>
+    <title>课程</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -56,7 +56,7 @@
             <li><a href="task.html">教学任务</a></li>
             <li><a href="dataset.html">数据集</a></li>
             <li><a href="#">作业提交</a></li>
-            <li class="active"><a href="#">课程案例</a></li>
+            <li><a href="#">课程案例</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="app">
@@ -72,94 +72,42 @@
     <!--正文内容-->
     <div class="container-fluid" id="content_container">
       <div class="row">
-        <!-- 案例 -->
+        <!-- 课程 -->
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-12">
-              <span class="span-h2">案例</span>
+              <span class="span-h2">课程</span>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="shape">
-                  <div class="shape-text">
-                    最新              
+
+            <template v-for="course in content">
+              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="speical speical-radius">
+                  <div class="shape" v-if="course.new">
+                    <div class="shape-text">
+                      最新              
+                    </div>
+                  </div>
+                  <div class="speical-content">
+                    <div style="max-height:38px;overflow:hidden">
+                      <h3 class="text-special-default" v-text="course.title">
+                      </h3>
+                    </div>
+                    <p>
+                      <a :href="course.link" target="_blank"><img class="img-responsive img-rounded" :src="course.pic"></a>
+                    </p>
+                    <div style="min-height:40px">
+                      <p v-text="course.intro">
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    上海地铁站点可视化
-                  </h3>
-                  <p>
-                    <a href="case/metro/metro_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-14_metro.png" alt="地铁可视化"></a>
-                  </p>
-                  <p>
-                    利用SODA大赛提供的数据进行可视化
-                  </p>
-                </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    树之礼赞：美丽的可视化
-                  </h3>
-                  <p>
-                    <a href="case/tree/tree_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-17_tree.png" alt="树之礼赞"></a>
-                  </p>
-                  <p>
-                    树木是抽象结构最为形象的比喻之一
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    大数据可视化：力向导图
-                  </h3>
-                  <p>
-                    <a href="case/force/force_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-28_force.png" alt="力向导图"></a>
-                  </p>
-                  <p>
-                    力向导图，一种强大的可视化手段
-                  </p>
-                </div>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
       </div>
     </div>
-
-
-
-
-    
-
-    <!-- <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-         </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>  -->
-
-
-    
+   
     <!--footer-->
     <footer>
       <div class="container-fluid footer-margin-top">
@@ -188,24 +136,14 @@
     <script src="js/vue.min.js"></script>
     <script src="js/userstatus.js" type="text/javascript"></script>
     <script src="js/iview.min.js" type="text/javascript" ></script>
+    <script src="js/data/course.js" type="text/javascript"></script>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       var instance = new Vue({
         el:"#content_container",
         data:{
-        },
-        methods:{
-          naviCloudware: function() {
-            if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
-            {
-              window.location.href="tool/cloudware.html";
-            }
-            else
-            {
-              window.location.href="member/signin.html";
-            }
-          }
+          content:course_info
         }
       });
     </script>
