@@ -128,9 +128,9 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">SQL</a></li>
-                  <li><a href="r.html">R</a></li>
-                  <li class="disabled"><a href="#">Python</a></li>
+                  <li><a>SQL</a></li>
+                  <li><a :href="rHref">R</a></li>
+                  <li class="disabled"><a>Python</a></li>
                 </ul>
               </div>
               <button type="button" id="btn_next" class="btn btn-info navbar-btn" style="display:none" onclick="execSQL_Next('koubei')">下一步</button>
@@ -202,10 +202,11 @@ show tables;</div>
     <script src="../js/sql.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var sqlVue = new Vue({
+      var rVue = new Vue({
         el:"#nav_control",
         data:{
-          isShow:true
+          isShow:true,
+          rHref:'r.html'
         },
         methods:{
           getUrlParams: function(){
@@ -224,6 +225,7 @@ show tables;</div>
           },
           isExample: function() {
             var database = this.getUrlParam('db');
+            this.rHref = 'r.html?db='+database;
             if(database=='example')
             {
               this.isShow=false;

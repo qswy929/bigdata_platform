@@ -121,9 +121,9 @@
                   <span class="caret btn-span"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="sql.html">SQL</a></li>
-                  <li><a href="#">R</a></li>
-                  <li class="disabled"><a href="#">Python</a></li>
+                  <li><a :href="sqlHref">SQL</a></li>
+                  <li><a>R</a></li>
+                  <li class="disabled"><a>Python</a></li>
                 </ul>
               </div>
             </li>
@@ -190,10 +190,11 @@ show tables;</div>
         var height = $(window).height();
         $("#rstudio").css('height',height-50);
       }
-      var rVue = new Vue({
+      var sqlVue = new Vue({
         el:"#nav_control",
         data:{
-          isShow:true
+          isShow:true,
+          sqlHref:'sql.html'
         },
         methods:{
           getUrlParams: function(){
@@ -212,6 +213,7 @@ show tables;</div>
           },
           isExample: function() {
             var database = this.getUrlParam('db');
+            this.sqlHref = 'sql.html?db='+database;
             if(database=='example')
             {
               this.isShow=false;
