@@ -121,15 +121,33 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">首页</a></li>
             <li><a href="task.html">最新任务</a></li>
-            <li><a href="#">课程</a></li>
-            <li class="active"><a href="#">在线实践</a></li>
+            <li><a href="course.html">课程</a></li>
+            <li class="active"><a href="practice.html">在线实践</a></li>
             <li><a href="dataset.html">数据集</a></li>
-            <li><a href="case.html">大数据案例</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li><a href="#">数据竞技场</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="case.html">大数据案例</a></li>
+                <li><a href="submit.html">作业提交</a></li>
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" id="app">
+          <ul class="nav navbar-nav navbar-right" id="user">
             <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
             <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
@@ -160,81 +178,56 @@
     </div>
 
     <div class="container-fluid margin-top-30">
-
-        <!--<div class="col-lg-3 col-sm-6 container-margin-bottom">
-          <a href="sql.html">
-            <h2 class="container-margin-bottom-compact">SQL</h2>
-            <img src="img/practice/SQL.png" height="120" class="img-rounded">
-          </a>
-          
-
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <div class="speical-content">
+              <h3>
+                SQL编辑器
+              </h3>
+              <p>
+                <a href="tool/sql.html?db=example"><img class="img-responsive img-rounded" src="img/practice/SQL.png" alt="SQL"></a>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col-sm-6 container-margin-bottom">
-          <h2 class="container-margin-bottom-compact">R</h2>
-          <img src="img/practice/R.png" width="120" height="120">
-          
-
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <div class="speical-content">
+              <h3>
+                RStudio
+              </h3>
+              <p>
+                <a href="tool/r.html"><img class="img-responsive img-rounded" src="img/practice/R.png" alt="RStudio"></a>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col-sm-6 container-margin-bottom">
-          <h2 class="container-margin-bottom-compact">Python</h2>
-          <img src="img/index/contest.png" width="120" height="120">
-          
-
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <div class="speical-content">
+              <h3>
+                Python编辑器
+              </h3>
+              <p>
+                <a href="#"><img class="img-responsive img-rounded" src="img/practice/python.png" alt="Python"></a>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-3 col-sm-6 container-margin-bottom">
-          <h2 class="container-margin-bottom-compact">云件工具</h2>
-          <img src="img/index/case.png" width="120" height="120">
-          
-        </div> -->
-      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="speical speical-radius">
-          <div class="speical-content">
-            <h3>
-              SQL编辑器
-            </h3>
-            <p>
-              <a href="tool/sql.html"><img class="img-responsive img-rounded" src="img/practice/SQL.png" alt="SQL"></a>
-            </p>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <div class="speical-content">
+              <h3>
+                云件环境
+              </h3>
+              <p>
+                <a href="tool/cloudware.html"><img class="img-responsive img-rounded" src="img/practice/cloudware.png" alt="Coudware"></a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="speical speical-radius">
-          <div class="speical-content">
-            <h3>
-              RStudio
-            </h3>
-            <p>
-              <a href="tool/r.html"><img class="img-responsive img-rounded" src="img/practice/R.png" alt="RStudio"></a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="speical speical-radius">
-          <div class="speical-content">
-            <h3>
-              Python编辑器
-            </h3>
-            <p>
-              <a href="#"><img class="img-responsive img-rounded" src="img/practice/python.png" alt="Python"></a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="speical speical-radius">
-          <div class="speical-content">
-            <h3>
-              云件环境
-            </h3>
-            <p>
-              <a href="tool/cloudware.html"><img class="img-responsive img-rounded" src="img/practice/cloudware.png" alt="Coudware"></a>
-            </p>
-          </div>
-        </div>
-      </div>
-      
     </div>
 
 
@@ -255,8 +248,8 @@
               </ul>
             </div>
             <div class="col-md-6">
-            Copyright © 2017 Tongji All Rights Reserved.
-          </div>
+              Copyright © 2017 Tongji All Rights Reserved.
+            </div>
           </div>
         </div>
       </div>

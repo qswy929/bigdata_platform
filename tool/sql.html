@@ -71,7 +71,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px"></a>
+          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
           <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
@@ -79,13 +79,35 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li><a href="../index.html">首页</a></li>
-            <li><a href="../task.html">教学任务</a></li>
+            <li><a href="../task.html">最新任务</a></li>
+            <li><a href="../course.html">课程</a></li>
+            <li><a href="../practice.html">在线实践</a></li>
             <li><a href="../dataset.html">数据集</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li><a href="../case.html">课程案例</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="../competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="../faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../case.html">大数据案例</a></li>
+                <li><a href="../submit.html">作业提交</a></li>
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" id="app">
+          <ul class="nav navbar-nav navbar-right" id="user">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
             <li><a href="../member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
@@ -96,8 +118,8 @@
     <nav class="navbar navbar-default navbar-compact">
       <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="navbar-collapse">
-          <a class="navbar-brand navbar-brand-sm navbar-margin">口碑客流量</a>
+        <div class="navbar-collapse" id="nav_control">
+          <a class="navbar-brand navbar-brand-sm navbar-margin" v-if="isShow">口碑客流量</a>
           <ul class="nav navbar-right-fixed">
             <li>
               <div class="btn-group" role="group">
@@ -177,9 +199,44 @@ show tables;</div>
     <!-- vue.js -->
     <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
-
     <script src="../js/sql.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var sqlVue = new Vue({
+        el:"#nav_control",
+        data:{
+          isShow:true
+        },
+        methods:{
+          getUrlParams: function(){
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+              hash = hashes[i].split('=');
+              vars.push(hash[0]);
+              vars[hash[0]] = hash[1];
+            }
+            return vars;
+          },
+          getUrlParam: function(name){
+            return this.getUrlParams()[name];
+          },
+          isExample: function() {
+            var database = this.getUrlParam('db');
+            if(database=='example')
+            {
+              this.isShow=false;
+            }
+          }
+        },
+        mounted: function() {
+          //alert($.cookie('username'))
+          this.isExample();
+        }
+      });
+    </script>
+
 
   </body>
 </html>

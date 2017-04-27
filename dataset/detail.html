@@ -158,13 +158,35 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li><a href="../index.html">首页</a></li>
-            <li><a href="../task.html">教学任务</a></li>
+            <li><a href="../task.html">最新任务</a></li>
+            <li><a href="../course.html">课程</a></li>
+            <li><a href="../practice.html">在线实践</a></li>
             <li><a href="../dataset.html">数据集</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li><a href="../case.html">课程案例</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="../competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="../faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../case.html">大数据案例</a></li>
+                <li><a href="../submit.html">作业提交</a></li>
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" id="app">
+          <ul class="nav navbar-nav navbar-right" id="user">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
             <li><a href="../member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>

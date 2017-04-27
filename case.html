@@ -13,16 +13,38 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <style type="text/css">
       h3 {
-        margin-top: 14px !important;
+        margin-top: 13px !important;
         font-size: 19px !important;     
+      }
+      .h3-small {
+        margin-top: 8px !important;
+        font-size: 16px !important;
+      }
+      .h3-median {
+        margin-top: 14.5px !important;
+        font-size: 18px !important;
       }
       p {
         margin: 5px 0 0 0;
       }
-
+      .div-table {
+        display: table;
+        min-height:40px;
+      }
+      .div-content-cell {
+        vertical-align: middle;
+        display: table-cell;
+      }
+      .div-overflow {
+        max-height: 40px;
+        overflow: hidden;
+      }
+      .div-margin-top {
+        margin-top: 20px;
+      }
       @media (min-width:768px){
         h3 {
-          margin-top: 14px !important;
+          margin-top: 13px !important;
           font-size: 21px !important;     
         }
       }
@@ -45,7 +67,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px"></a>
+          <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
           <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
@@ -53,13 +75,35 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li><a href="index.html">首页</a></li>
-            <li><a href="task.html">教学任务</a></li>
+            <li><a href="task.html">最新任务</a></li>
+            <li><a href="course.html">课程</a></li>
+            <li><a href="practice.html">在线实践</a></li>
             <li><a href="dataset.html">数据集</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li class="active"><a href="#">课程案例</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li class="active visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="case.html">大数据案例</a></li>
+                <li><a href="submit.html">作业提交</a></li>
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" id="app">
+          <ul class="nav navbar-nav navbar-right" id="user">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
             <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
@@ -70,96 +114,75 @@
 
 
     <!--正文内容-->
-    <div class="container-fluid" id="content_container">
+    <div class="container-fluid container-margin-bottom-compact" id="content_container">
       <div class="row">
-        <!-- 案例 -->
+        <!-- 可视化案例 -->
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-12">
-              <span class="span-h2">案例</span>
+              <span class="span-h2">可视化</span>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="shape">
-                  <div class="shape-text">
-                    最新              
+            <template v-for="item in case_visual">
+              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="speical speical-radius">
+                  <div class="shape" v-if="item.isNew">
+                    <div class="shape-text">
+                      最新              
+                    </div>
+                  </div>
+                  <div class="speical-content">
+                    <div class="div-overflow">
+                      <h3 class="text-special-default" :class="item.titleClass" v-text="item.title">
+                      </h3>
+                    </div>
+                    <p>
+                      <a :href="item.link" :alt="item.title" :target="item.isBlank? '_blank' : '_self'"><img class="img-responsive img-rounded" :src="item.pic"></a>
+                    </p>
+                    <div class="div-table">
+                      <p v-text="item.intro" class="div-content-cell">
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    上海地铁站点可视化
-                  </h3>
-                  <p>
-                    <a href="case/metro/metro_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-14_metro.png" alt="地铁可视化"></a>
-                  </p>
-                  <p>
-                    利用SODA大赛提供的数据进行可视化
-                  </p>
+              </div>
+            </template>
+          </div>
+        </div>
+        <!-- 竞赛案例 -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 div-margin-top">
+              <span class="span-h2">模型算法</span>
+            </div>
+            <template v-for="item in case_compe">
+              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="speical speical-radius">
+                  <div class="shape" v-if="item.isNew">
+                    <div class="shape-text">
+                      最新              
+                    </div>
+                  </div>
+                  <div class="speical-content">
+                    <div class="div-overflow">
+                      <h3 class="text-special-default" :class="item.titleClass" v-text="item.title">
+                      </h3>
+                    </div>
+                    <p>
+                      <a :href="item.link" :alt="item.title" :target="item.isBlank? '_blank' : '_self'"><img class="img-responsive img-rounded" :src="item.pic"></a>
+                    </p>
+                    <div class="div-table">
+                      <p v-text="item.intro" class="div-content-cell">
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    树之礼赞：美丽的可视化
-                  </h3>
-                  <p>
-                    <a href="case/tree/tree_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-17_tree.png" alt="树之礼赞"></a>
-                  </p>
-                  <p>
-                    树木是抽象结构最为形象的比喻之一
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <div class="speical speical-radius">
-                <div class="speical-content">
-                  <h3 class="text-special-default">
-                    大数据可视化：力向导图
-                  </h3>
-                  <p>
-                    <a href="case/force/force_index.html"><img class="img-responsive img-rounded margin-auto" src="img/case/2017-3-28_force.png" alt="力向导图"></a>
-                  </p>
-                  <p>
-                    力向导图，一种强大的可视化手段
-                  </p>
-                </div>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-    
-
-    <!-- <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-         </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>  -->
-
-
-    
     <!--footer-->
     <footer>
       <div class="container-fluid footer-margin-top">
@@ -174,8 +197,8 @@
               </ul>
             </div>
             <div class="col-md-6">
-            Copyright © 2017 Tongji All Rights Reserved.
-          </div>
+              Copyright © 2017 Tongji All Rights Reserved.
+            </div>
           </div>
         </div>
       </div>
@@ -188,26 +211,18 @@
     <script src="js/vue.min.js"></script>
     <script src="js/userstatus.js" type="text/javascript"></script>
     <script src="js/iview.min.js" type="text/javascript" ></script>
+    <script src="js/data/case.js" type="text/javascript"></script>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       var instance = new Vue({
         el:"#content_container",
         data:{
-        },
-        methods:{
-          naviCloudware: function() {
-            if(typeof($.cookie('JSESSIONID'))!="undefined" && $.cookie('JSESSIONID') != null)
-            {
-              window.location.href="tool/cloudware.html";
-            }
-            else
-            {
-              window.location.href="member/signin.html";
-            }
-          }
+          case_visual: case_visual,
+          case_compe: case_compe
         }
       });
+    </script>
     </script>
   </body>
 </html>

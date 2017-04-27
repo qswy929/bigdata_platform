@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>课程</title>
+    <title>FAQ</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -12,38 +12,16 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <style type="text/css">
-      h3 {
-        margin-top: 13px !important;
-        font-size: 19px !important;     
+      h1 {
+        font-size: 40px !important;
       }
-      .h3-small {
-        margin-top: 8px !important;
-        font-size: 16px !important;
-      }
-      .h3-median {
-        margin-top: 14.5px !important;
-        font-size: 18px !important;
-      }
-      p {
-        margin: 5px 0 0 0;
-      }
-      .div-table {
-        display: table;
-        min-height:40px;
-      }
-      .div-content-cell {
-        vertical-align: middle;
-        display: table-cell;
-      }
-      .div-overflow {
-        max-height: 38px;
-        overflow: hidden;
+      .p-marign-bottom {
+        margin-bottom: 22px !important;
       }
       @media (min-width:768px){
-        h3 {
-          margin-top: 13px !important;
-          font-size: 21px !important;     
-        }
+        h1 {
+        font-size: 50px !important;
+      }
       }
     </style>
     
@@ -73,20 +51,20 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">首页</a></li>
             <li><a href="task.html">最新任务</a></li>
-            <li class="active"><a href="course.html">课程</a></li>
+            <li><a href="course.html">课程</a></li>
             <li><a href="practice.html">在线实践</a></li>
             <li><a href="dataset.html">数据集</a></li>
             <li class="visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
             <li class="visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
             <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
-            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
+            <li class="active visible-lg-block"><a href="faq.html">FAQ</a></li>
             <!--  响应式工具 -->
             <li class="dropdown visible-md-block">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <!--<li><a href="#">作业提交</a></li>-->
                 <li><a href="competition.html">数据竞技场</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li class="active"><a href="faq.html">FAQ</a></li>
               </ul>
             </li>
             <li class="dropdown visible-sm-block visible-xs-block">
@@ -95,7 +73,7 @@
                 <li><a href="case.html">大数据案例</a></li>
                 <li><a href="submit.html">作业提交</a></li>
                 <li><a href="competition.html">数据竞技场</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li class="active"><a href="faq.html">FAQ</a></li>
               </ul>
             </li>
           </ul>
@@ -113,45 +91,20 @@
     <!--正文内容-->
     <div class="container-fluid container-margin-bottom-compact" id="content_container">
       <div class="row">
-        <!-- 课程 -->
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-12">
-              <span class="span-h2">课程</span>
-            </div>
-
-            <template v-for="item in content">
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="speical speical-radius">
-                  <div class="shape" v-if="item.isNew">
-                    <div class="shape-text">
-                      最新              
-                    </div>
-                  </div>
-                  <div class="speical-content">
-                    <div class="div-overflow">
-                      <h3 class="text-special-default" :class="item.titleClass" v-text="item.title">
-                      </h3>
-                    </div>
-                    <p>
-                      <a :href="item.link" target="_blank" :alt="item.title"><img class="img-responsive img-rounded" :src="item.pic"></a>
-                    </p>
-                    <div class="div-table">
-                      <p v-text="item.intro" class="div-content-cell">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </template>
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 container-margin-top text-center">
+          <div class="jumbotron footer-margin-top">
+            <h1>页面正在建设中</h1>
+            <p class="p-marign-bottom">敬请期待</p>
+            <p><a class="btn btn-primary btn-lg" href="index.html" role="button">返回首页</a></p>
           </div>
         </div>
+        
       </div>
     </div>
    
     <!--footer-->
     <footer>
-      <div class="container-fluid footer-margin-top">
+      <div class="container-fluid footer-fixed">
         <div class="container text-center">
           <div class="row">
             <div class="col-md-6">
@@ -163,8 +116,8 @@
               </ul>
             </div>
             <div class="col-md-6">
-            Copyright © 2017 Tongji All Rights Reserved.
-          </div>
+              Copyright © 2017 Tongji All Rights Reserved.
+            </div>
           </div>
         </div>
       </div>
@@ -176,17 +129,9 @@
     <!-- vue.js -->
     <script src="js/vue.min.js"></script>
     <script src="js/userstatus.js" type="text/javascript"></script>
-    <script src="js/iview.min.js" type="text/javascript" ></script>
-    <script src="js/data/course.js" type="text/javascript"></script>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
-      var instance = new Vue({
-        el:"#content_container",
-        data:{
-          content:course_info
-        }
-      });
     </script>
   </body>
 </html>

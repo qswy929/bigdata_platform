@@ -113,3 +113,10 @@ body {
     font-weight: 500;
     //ine-height: 1.1;
   }
+  .container-table {
+    display: table;
+  }
+  .container-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }

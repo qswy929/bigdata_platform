@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>课件</title>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->   
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>作业提交</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <style type="text/css">
       body{
         padding-top: 50px !important;
@@ -29,13 +29,13 @@
       .loadingHide {
         display: none;
       }
-      #course_container a,#course_container a:visited,#course_container a:hover,#course_container a:active { /*全部状态都一样的效果*/
+      #div_container a,#div_container a:visited,#div_container a:hover,#div_container a:active { /*全部状态都一样的效果*/
           //color: grey; 
           //text-decoration: none;          
       } 
       .row-common-style {
-        #background-color: #C0392B;
-        background-image: url(../img/task/task_bg.jpg);
+        background-image: linear-gradient(-60deg,#bad994 0,#6fcbdc 60%,#32b5cd 100%);
+        #background-image: url(img/submit/back.png);
         background-size:cover;
         background-position: center;
         margin-bottom: 20px;
@@ -47,7 +47,7 @@
         color: white;
       }
       .p-color {
-        color: rgb(255, 196, 174);
+        color: rgb(234, 241, 247);
       }
       p {
         margin: 0;
@@ -81,7 +81,6 @@
           font-size: 18px !important;
         }
       }
-
     </style>
     
   </head>
@@ -101,44 +100,44 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
+          <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
           <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
-            <li><a href="../index.html">首页</a></li>
-            <li><a href="../task.html">最新任务</a></li>
-            <li><a href="../course.html">课程</a></li>
-            <li><a href="../practice.html">在线实践</a></li>
-            <li><a href="../dataset.html">数据集</a></li>
-            <li class="visible-lg-block visible-md-block"><a href="../case.html">大数据案例</a></li>
-            <li class="visible-lg-block visible-md-block"><a href="../submit.html">作业提交</a></li>
-            <li class="visible-lg-block"><a href="../competition.html">数据竞技场</a></li>
-            <li class="visible-lg-block"><a href="../faq.html">FAQ</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="task.html">最新任务</a></li>
+            <li><a href="course.html">课程</a></li>
+            <li><a href="practice.html">在线实践</a></li>
+            <li><a href="dataset.html">数据集</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
+            <li class="active visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
             <!--  响应式工具 -->
             <li class="dropdown visible-md-block">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <!--<li><a href="#">作业提交</a></li>-->
-                <li><a href="../competition.html">数据竞技场</a></li>
-                <li><a href="../faq.html">FAQ</a></li>
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
               </ul>
             </li>
             <li class="dropdown visible-sm-block visible-xs-block">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="../case.html">大数据案例</a></li>
-                <li><a href="../submit.html">作业提交</a></li>
-                <li><a href="../competition.html">数据竞技场</a></li>
-                <li><a href="../faq.html">FAQ</a></li>
+                <li><a href="case.html">大数据案例</a></li>
+                <li class="active"><a href="submit.html">作业提交</a></li>
+                <li><a href="competition.html">数据竞技场</a></li>
+                <li><a href="faq.html">FAQ</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="user">
             <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
-            <li><a href="../member/signup.html">注册</a></li>
+            <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -147,47 +146,56 @@
 
     <div class="container-fluid">
       <div class="row row-common-style row-height text-center">
-        <h1 class="color-white">课件汇总</h1>
-        <p class="p-color p-title">各位学员可不要忘了下载每周新鲜出炉的课件</p>
+        <h1 class="color-white">作业提交</h1>
+        <p class="p-color p-title">请各位学员按时完成作业并上传</p>
       </div>
     </div>
+
+
 
 
     <!--正文内容-->
-    <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 container-margin-bottom-compact">    
-      <div class="panel panel-default" id="courseware_container">
-      <!-- Default panel contents -->
-        <div class="panel-heading"><h4 v-text="cur_data.name"></h4></div>
-      <!-- Table -->
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>序号</th>
-                <th>内容</th>
-                <th>PPT下载</th>
-              </tr>
-            </thead>
-            <tbody>
-              <template v-for="(ware,index) in cur_data.ware">
-                <tr>
-                  <td v-text="index+1"></td>
-                  <td><a target="_blank" v-text="ware.title" :href="ware.content"></a></td>
-                  <td><a target="_blank" v-text="ware.download" :href="ware.download" ></a></td>
-                <tr>
-              </template>
-              <!--<tr>
-                <td>1</td>
-                <td><a target="_blank" href="http://mp.weixin.qq.com/s?__biz=MzIxOTU2MjQ0Mw==&mid=2247483822&idx=1&sn=b0c2e24743eab141f017b5f5cc75aec9&scene=21#wechat_redirect">Overview</a></td>
-                <td><a target="_blank" href="https://pan.baidu.com/s/1dE0UqjB">https://pan.baidu.com/s/1dE0UqjB</a></td>
-              </tr>-->
-            </tbody>   
-          </table>
+    <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 container-margin-bottom" id="content_container">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">请按提示完成操作</h3>
+        </div>
+        <div class="panel-body">
+          <div class="container-fluid container-margin-bottom">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="input-group container-margin-bottom-compact">
+                <span class="input-group-addon" id="sizing-addon-work">选择作业</span>
+                <select class="form-control">  
+                  <option value="">-- 作业名 --</option>
+                </select> 
+                </div>
+                <p>请提交.zip或.rar格式的文件</p>
+                <div class="input-group">
+                  <input type="file" class="form-control" accept="application/zip, application/x-rar-compressed">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">提交结果</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div>           
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">最近一次提交的结果</h3>
+              </div>
+              <div class="panel-body">
+                2017-3-14.csv (2017/03/14 15:47:34)
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
-
-    
+   
     <!--footer-->
     <footer>
       <div class="container-fluid footer-margin-top">
@@ -209,48 +217,19 @@
       </div>
     </footer>
    
-    <script src="../js/jquery-3.1.1.min.js"></script>
-    <script src="../js/jquery.cookie.js"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <!-- vue.js -->
-    <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
-    <script src="../js/userstatus.js" type="text/javascript"></script>
-    <!-- 课程信息存在以下文件中 -->
-    <script src="../js/data/courseware.js" type="text/javascript"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/userstatus.js" type="text/javascript"></script>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
-      var courseware = new Vue({
-        el:"#courseware_container",
+      var instance = new Vue({
+        el:"#content_container",
         data:{
-          cur_data:datasci
-        },
-        methods:{
-          getUrlParams: function(){
-            var vars = [], hash;
-            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-            for(var i = 0; i < hashes.length; i++)
-            {
-              hash = hashes[i].split('=');
-              vars.push(hash[0]);
-              vars[hash[0]] = hash[1];
-            }
-            return vars;
-          },
-          getUrlParam: function(name){
-            return this.getUrlParams()[name];
-          },
-          dataBind: function() {
-            var course = this.getUrlParam('course');
-            if(course=='1')
-            {
-              this.cur_data=bigdata;
-            }
-          }
-        },
-        mounted: function() {
-          //alert($.cookie('username'))
-          this.dataBind();
+          
         }
       });
     </script>

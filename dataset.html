@@ -32,8 +32,7 @@
       .loadingHide {
         display: none;
       }
-      #datasets_container 
-        a,a:visited,a:hover,a:active { /*全部状态都一样的效果*/
+      #datasets_container a,#datasets_container a:visited,#datasets_container a:hover,#datasets_container a:active { /*全部状态都一样的效果*/
           color: grey; 
           text-decoration: none;          
       } 
@@ -106,13 +105,35 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
             <li><a href="index.html">首页</a></li>
-            <li><a href="task.html">教学任务</a></li>
-            <li class="active"><a href="#">数据集</a></li>
-            <li><a href="#">作业提交</a></li>
-            <li><a href="case.html">课程案例</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="task.html">最新任务</a></li>
+            <li><a href="course.html">课程</a></li>
+            <li><a href="practice.html">在线实践</a></li>
+            <li class="active"><a href="dataset.html">数据集</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="case.html">大数据案例</a></li>
+                <li><a href="#">作业提交</a></li>
+                <li><a href="#">数据竞技场</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" id="app">
+          <ul class="nav navbar-nav navbar-right" id="user">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
             <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
@@ -145,7 +166,28 @@
         </div>
       </Back-top>
     </div>
-      <!--<a v-on:click='back'><Icon type="chevron-up"></Icon></a> -->
+    
+
+    <!--footer-->
+    <footer>
+      <div class="container-fluid footer-margin-top">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="no-extra"><a href="#">关于平台</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">注意事项</a></li>
+                <li><a href="#" target="_blank">联系邮箱</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+            Copyright © 2017 Tongji All Rights Reserved.
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- 引入组件库 -->
     <!-- 引入Vue.js -->   
@@ -157,6 +199,7 @@
     <script src="js/userstatus.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/iview.min.js"></script>
     <script type="text/javascript" src="js/vue-mugen-scroll.min.js"></script>
+    <script type="text/javascript" src="js/data/dataset.js"></script>
     <script>
       Vue.component("dataset-item",{
       	props:['todo'],
@@ -168,19 +211,7 @@
       var app = new Vue({
       	el:"#datasets_container",
       	data:{
-      		datasets:[
-      			{title:"IJCAI-17 口碑商家客流量预测",information:"口碑致力于为每个商家提供销售预测。基于预测结果，商家可以优化运营，降低成本，并改善用户体验。这次比赛中，我们将以恰当定义的销售预测问题为题。 我们鼓励创新的解法，帮助口碑成为更加智能的商业平台，更好地服务社会。同时，希望每位参赛选手都能享受到这次比赛带来的乐趣。",link:"dataset/detail.html"},
-      			{title:"Iris 鸢尾花卉数据集",information:"在模式识别文献中，Iris 数据集恐怕是最通用也是最简单的数据集了。要学习分类技术，Iris 数据集绝对是最方便的途径。该数据集由Fisher于1936收集整理。",link:"#"},
-      			{title:"泰坦尼克数据集",information:"泰坦尼克数据集也是全球数据科学殿堂中出镜率最高的数据集之一。借助一些教程和指导，泰坦尼克数据集可以让你深入了解数据科学。通过对类别、数字、文本等数据的结合，你能从该数据集中总结出最疯狂的想法。",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"},
-      			{title:"我是一个标题",information:"这里是说明这里是说明这里是说明",link:"#"}
-      		],
+      		datasets:dataset,
           loadingCount:0,
           loading:false,
           isActive:false,
@@ -192,7 +223,7 @@
         	  // ... the code you wanna run to fetch data
         	  if(this.loadingCount<10)
             {
-    		  	  this.datasets.push({title:"我是一个标题",information:"这还是说明这还是说明这还是说明"})
+    		  	  this.datasets.push({title:"数据集名称",information:"数据集的简要说明"})
               this.loadingCount = this.loadingCount + 1
     		    }
             else

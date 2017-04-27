@@ -1,5 +1,5 @@
 new Vue ({
-        el: '#app',
+        el: '#user',
         data : {
           ope_info: '登录',
           url: '#'
