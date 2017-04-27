@@ -9,6 +9,34 @@ var editor = ace.edit("editor");
       var table;
       var len;  //SQL语句条数
 
+
+
+      function getUrlParams(){
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+        }
+        return vars;
+      }
+      function getUrlParam(name){
+        return this.getUrlParams()[name];
+      }
+
+      //入口
+      function start()
+      {
+        var database = this.getUrlParam('db');
+        if(database!="undefined" && database!="")
+        {
+          execSQL(database);
+        }
+      }
+
+
       function execSQL_Next(dbName)
       {
         if(cur_step > 1 && cur_step <= len)
