@@ -54,11 +54,13 @@
               {
                 //alert("请勿重复注销！");
               }
-              window.location.href="../index.html";             
+              window.location.href="../index.html";
+              window.event.returnValue = false;             
             }, function(response){
                 // 响应错误回调
                 alert("抱歉，服务器无响应！");
-                window.location.href="../index.html";               
+                window.location.href="../index.html";
+                window.event.returnValue = false;               
             });
           }
         },
