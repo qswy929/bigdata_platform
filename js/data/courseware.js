@@ -27,5 +27,5 @@ var datasci = {name:"《数据科学通识导论》课程汇总",ware:[
             {title:"基础设施",content:"http://dwz.cn/5QCLeD",download:"https://pan.baidu.com/s/1miqLMlU"},
             {title:"技术架构",content:"http://dwz.cn/5QCFIV",download:"https://pan.baidu.com/s/1slU7Adn"},
             {title:"数据库系统",content:"http://dwz.cn//5QD1wj",download:"https://pan.baidu.com/s/1ge8X1dT"},
-            {title:"大数据系统",content:"http://dwz.cn/5QCOIp",download:"https://pan.baidu.com/s/1bBjMhS"}
+            {title:"大数据系统",content:"http://dwz.cn/5SbdX5",download:"https://pan.baidu.com/s/1bBjMhS"}
           ]}

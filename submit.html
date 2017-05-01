@@ -236,9 +236,9 @@
           getDate: function(){
             var mydate = new Date();
             var fileName = mydate.toLocaleDateString();
-            fileName = mydate.formate("yyyy-MM-dd");
+            fileName = mydate.format("yyyy-MM-dd");
 
-            this.uploadDate=fileName+".rar　("+mydate.formate("yyyy-MM-dd HH:mm:ss")+")"; //获取当前时间
+            this.uploadDate=fileName+".rar　("+mydate.format("yyyy-MM-dd HH:mm:ss")+")"; //获取当前时间
           }
         },
         mounted: function(){

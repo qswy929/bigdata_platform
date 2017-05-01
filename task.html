@@ -74,6 +74,11 @@
       .loadingHide {
         display: none;
       }
+      .block {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
       @media (min-width:768px) {
         .p-title {
           font-size: 24px;
@@ -176,11 +181,11 @@
 			    <i-input v-model="publish.url" placeholder="地址 http(s)://" class="footer-margin-top"></i-input>
         </Modal>
     		<ul class="list-group hidden-xs">
-    		  <li href="#" class="list-group-item">按时间筛选</li>
-    		  <li class="list-group-item list-group-item-success"><a @click="filterData('2017-05')">2017年5月</a></li>
-    		  <li class="list-group-item list-group-item-info"><a @click="filterData('2017-04')">2017年4月</a></li>
-    		  <li class="list-group-item list-group-item-warning"><a @click="filterData('2017-03')">2017年3月</a></li>
-    		  <li class="list-group-item list-group-item-danger"><a @click="filterData('2017-02')">2017年2月</a></li>
+    		  <li class="list-group-item">按时间筛选</li>
+    		  <li class="list-group-item list-group-item-success"><a class="block" @click="filterData(dateFilter.first.replace(/年/,'-').replace(/月/,''))" v-text="dateFilter.first"></a></li>
+    		  <li class="list-group-item list-group-item-info"><a class="block" @click="filterData(dateFilter.second.replace(/年/,'-').replace(/月/,''))" v-text="dateFilter.second"></a></li>
+    		  <li class="list-group-item list-group-item-warning"><a class="block" @click="filterData(dateFilter.third.replace(/年/,'-').replace(/月/,''))" v-text="dateFilter.third"></a></li>
+    		  <li class="list-group-item list-group-item-danger"><a class="block" @click="filterData(dateFilter.fourth.replace(/年/,'-').replace(/月/,''))" v-text="dateFilter.fourth"></a></li>
     		</ul>
       </div>
     	<div class="col-lg-9 col-sm-9">
@@ -200,7 +205,8 @@
           </Row>
 
         <!--任务-->
-        <span class="span-h2">教学任务</span>
+        <span class="span-h2">教学任务</span> 
+        <i-button  class='pull-right' @click='recover' type="warning" v-if="fdate!=''">清除筛选</i-button>
     		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">
         <Spin v-bind:class="{loadingHide: isActive}">
@@ -251,6 +257,7 @@
     <script type="text/javascript" src="js/vue-mugen-scroll.min.js"></script>
     <script src="js/taffy-min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/data/task.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
     <script>
       Vue.component("task-item",{
       	props:['todo'],
@@ -274,16 +281,23 @@
           loading:false,
           isActive:false,
           modal:false,
-          fdate:''
+          fdate:'',
+          dateFilter:{
+            first:'',
+            second:'',
+            third:'',
+            fourth:''
+          }
       	},
         components: {MugenScroll},
       	methods:{
         	fetchData() {
         	  this.loading = true
         	  // ... the code you wanna run to fetch data
-        	  if(this.loadingCount<task.length-3)
+        	  if(this.loadingCount<this.tasks_all({date:{like:this.fdate}}).count()-3)
             {
-    		  	  this.tasks.push(this.tasks_all().start(this.loadingCount+4).first());
+    		  	  this.tasks.push(this.tasks_all({date:{like:this.fdate}}).start(this.loadingCount+4).first());
+              //console.log(this.tasks_all.start(4).get());
               this.loadingCount = this.loadingCount + 1;
     		    }
             else
@@ -293,11 +307,33 @@
         	  this.loading = false
         	},
           filterData(para) {
-            this.fdate=para;
-            
+            this.fdate = para;
+            this.loadingCount = 0;
+            this.isActive = false;
+            //this.tasks_all = TAFFY(task);
+            this.tasks = TAFFY(task)({date:{like:para}}).limit(3).get();
+          },
+          dateBind() {
+            var mydate = new Date();
+            this.dateFilter.first = mydate.format("yyyy年MM月");
+            mydate.add("m", -1);
+            this.dateFilter.second = mydate.format("yyyy年MM月");
+            mydate.add("m", -1);
+            this.dateFilter.third = mydate.format("yyyy年MM月");
+            mydate.add("m", -1);
+            this.dateFilter.fourth = mydate.format("yyyy年MM月");
+          },
+          recover() {
+            this.fdate = '';
+            this.tasks = TAFFY(task)().limit(3).get();
+            this.loadingCount = 0;
+            this.isActive = false;
 
           }
-      	}
+      	},
+        mounted: function() {
+          this.dateBind();
+        }
       });
     </script>
   </body>

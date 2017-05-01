@@ -3,6 +3,11 @@ var dataset = [
                 {title:"Iris 鸢尾花卉数据集",intro:"在模式识别文献中，Iris 数据集恐怕是最通用也是最简单的数据集了。要学习分类技术，Iris 数据集绝对是最方便的途径。该数据集由Fisher于1936收集整理。",dbName:"dataset/detail.html?db=iris",pic:"img/dataset/iris/cover.jpg"},
                 {title:"泰坦尼克数据集",intro:"泰坦尼克数据集也是全球数据科学殿堂中出镜率最高的数据集之一。借助一些教程和指导，泰坦尼克数据集可以让你深入了解数据科学。通过对类别、数字、文本等数据的结合，你能从该数据集中总结出最疯狂的想法。",dbName:"dataset/detail.html?db=titanic",pic:"img/dataset/titanic/cover.png"},
                 {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
+                {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
+                {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
+                {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
+                {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
+                {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"},
                 {title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"}
             ]
 
