@@ -299,6 +299,10 @@
     		  	  this.tasks.push(this.tasks_all({date:{like:this.fdate}}).start(this.loadingCount+4).first());
               //console.log(this.tasks_all.start(4).get());
               this.loadingCount = this.loadingCount + 1;
+              if(this.loadingCount==this.tasks_all({date:{like:this.fdate}}).count()-3)
+              {
+                this.isActive = true
+              }
     		    }
             else
             {

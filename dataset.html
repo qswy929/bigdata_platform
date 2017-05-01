@@ -240,6 +240,10 @@
             {
     		  	  this.datasets.push(this.datasets_all().start(this.loadingCount+4).first())
               this.loadingCount = this.loadingCount + 1
+              if(this.loadingCount==this.datasets_all().count()-3)
+              {
+                this.isActive = true
+              }
     		    }
             else
             {
