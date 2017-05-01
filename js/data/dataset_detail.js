@@ -1,4 +1,4 @@
-var dataset_detail = TAFFY([
+var dataset_detail = [
           {
             dbName:'koubei',
             title:"IJCAI-17 口碑商家客流量预测",
@@ -41,4 +41,4 @@ var dataset_detail = TAFFY([
               {src:"../img/dataset/titanic/pic1.png"}
             ]
           }
-]);
+];

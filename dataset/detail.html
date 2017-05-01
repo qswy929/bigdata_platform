@@ -337,7 +337,7 @@
           }
         },
         mounted: function(){
-          this.info = dataset_detail({dbName:this.getUrlParam('db')}).first();
+          this.info = TAFFY(dataset_detail)({dbName:this.getUrlParam('db')}).first();
           //console.log(this.info);
         }
       });
