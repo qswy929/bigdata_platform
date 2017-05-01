@@ -215,7 +215,8 @@
     <script>
       Vue.component("dataset-item",{
       	props:['todo'],
-      	template:"<Row><Col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'><Card style='margin-bottom:20px'><p slot='title' class='dataset-title'>{{todo.title}}</p><Row><Col :sm='{span: 2}' :xs='{span: 4}' class='div-table'><span class='div-content-cell'><img :src='todo.pic' alt='暂无图片' class='img-responsive img-rounded'></span></Col><Col :sm='{span: 21, offset: 1}' :xs='{span: 19, offset: 1}' class='card-intro'><a :href='\"dataset/detail.html?db=\"+todo.dbName'><p>{{todo.intro}}</p></a></Col></Row></Card></Col></Row>"
+      	//template:"<Row><Col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'><Card style='margin-bottom:20px'><a slot='title' class='item-title' :href='\"dataset/detail.html?db=\"+todo.dbName'><p class='dataset-title'>{{todo.title}}</p></a><Row><Col :sm='{span: 2}' :xs='{span: 4}' class='div-table'><span class='div-content-cell'><a :href='\"dataset/detail.html?db=\"+todo.dbName'><img :src='todo.pic' alt='暂无图片' class='img-responsive img-rounded'></a></span></Col><Col :sm='{span: 21, offset: 1}' :xs='{span: 19, offset: 1}' class='card-intro'><a :href='\"dataset/detail.html?db=\"+todo.dbName'><p>{{todo.intro}}</p></a></Col></Row></Card></Col></Row>"
+        template:"<Row><Col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'><Card style='margin-bottom:20px'><a slot='title' class='item-title' :href='todo.dbName'><p class='dataset-title'>{{todo.title}}</p></a><Row><Col :sm='{span: 2}' :xs='{span: 4}' class='div-table'><span class='div-content-cell'><a :href='todo.dbName'><img :src='todo.pic' alt='暂无图片' class='img-responsive img-rounded'></a></span></Col><Col :sm='{span: 21, offset: 1}' :xs='{span: 19, offset: 1}' class='card-intro'><a :href='todo.dbName'><p>{{todo.intro}}</p></a></Col></Row></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop"
@@ -235,7 +236,7 @@
         	  // ... the code you wanna run to fetch data
         	  if(this.loadingCount<10)
             {
-    		  	  this.datasets.push({title:"数据集名称",intro:"数据集的简要说明",dbName:"",pic:"img/dataset/default.png"})
+    		  	  this.datasets.push({title:"数据集名称",intro:"数据集的简要说明",dbName:"#",pic:"img/dataset/default.png"})
               this.loadingCount = this.loadingCount + 1
     		    }
             else

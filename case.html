@@ -42,6 +42,14 @@
       .div-margin-top {
         margin-top: 20px;
       }
+      .item-link
+      {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
       @media (min-width:768px){
         h3 {
           margin-top: 13px !important;
@@ -123,7 +131,7 @@
               <span class="span-h2">可视化</span>
             </div>
             <template v-for="item in case_visual">
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="speical speical-radius">
                   <div class="shape" v-if="item.isNew">
                     <div class="shape-text">
@@ -155,7 +163,7 @@
               <span class="span-h2">模型算法</span>
             </div>
             <template v-for="item in case_compe">
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="speical speical-radius">
                   <div class="shape" v-if="item.isNew">
                     <div class="shape-text">

@@ -29,12 +29,12 @@
         text-align: center;
         border-radius: 2px;
    	  }
-      .loadingHide {
-        display: none;
-      }
+
       #tasks_container a,#tasks_container a:visited,#tasks_container a:hover,#tasks_container a:active { /*全部状态都一样的效果*/
           color: grey; 
-          text-decoration: none;          
+          text-decoration: none; 
+          //position: relative;
+          //z-index: 2;         
       } 
  
 
@@ -71,6 +71,9 @@
           margin-top: 8px;
           margin-bottom: 25px;
       }
+      .loadingHide {
+        display: none;
+      }
       @media (min-width:768px) {
         .p-title {
           font-size: 24px;
@@ -84,6 +87,8 @@
         }
         .task-title {
           font-size: 18px !important;
+          position: relative;
+          z-index: 2;
         }
       }
 
@@ -146,7 +151,7 @@
             <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
+        </div><!-- /.navbar-collapse --> 
       </div><!-- /.container-fluid -->
     </nav>
 
@@ -172,24 +177,24 @@
         </Modal>
     		<ul class="list-group hidden-xs">
     		  <li href="#" class="list-group-item">按时间筛选</li>
-    		  <li class="list-group-item list-group-item-success">2017年5月</li>
-    		  <li class="list-group-item list-group-item-info">2017年4月</li>
-    		  <li class="list-group-item list-group-item-warning">2017年3月</li>
-    		  <li class="list-group-item list-group-item-danger">2017年2月</li>
+    		  <li class="list-group-item list-group-item-success"><a @click="filterData('2017-05')">2017年5月</a></li>
+    		  <li class="list-group-item list-group-item-info"><a @click="filterData('2017-04')">2017年4月</a></li>
+    		  <li class="list-group-item list-group-item-warning"><a @click="filterData('2017-03')">2017年3月</a></li>
+    		  <li class="list-group-item list-group-item-danger"><a @click="filterData('2017-02')">2017年2月</a></li>
     		</ul>
       </div>
     	<div class="col-lg-9 col-sm-9">
         <!--课件-->
         <span class="span-h2">课件</span>
           <Row>
-            <i-col>
-              <Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>《数据科学通识导论》课程汇总(更新中)</p><a href='task/courseware.html?course=0'><p>公众号文章+PPT下载</p></a>
+            <i-col> 
+              <Card :bordered='false' style='margin-bottom:20px'><a slot='title' class="item-title" href='task/courseware.html?course=0'><p class='task-title'>《数据科学通识导论》课程汇总(更新中)</p></a><a href='task/courseware.html?course=0'><p>公众号文章+PPT下载</p></a>
               </Card>
             </i-col>
           </Row>
           <Row>
             <i-col>
-              <Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>《大数据原理与实践》课程汇总(已完结)</p><a href='task/courseware.html?course=1'><p>公众号文章+PPT下载</p></a>
+              <Card :bordered='false' style='margin-bottom:20px'><a slot='title' class="item-title" href='task/courseware.html?course=1'><p class='task-title'>《大数据原理与实践》课程汇总(已完结)</p></a><a href='task/courseware.html?course=1'><p>公众号文章+PPT下载</p></a>
               </Card>
             </i-col>
           </Row>
@@ -244,10 +249,12 @@
     <script src="js/userstatus.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/iview.min.js"></script>
     <script type="text/javascript" src="js/vue-mugen-scroll.min.js"></script>
+    <script src="js/taffy-min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/data/task.js"></script>
     <script>
       Vue.component("task-item",{
       	props:['todo'],
-      	template:"<Row><Col><Card :bordered='false' style='margin-bottom:20px'><p slot='title' class='task-title'>{{todo.title}}</p><p slot='extra'>{{todo.date}}</p><a target='_blank' :href='todo.link'><p>{{todo.link}}</p></a></Card></Col></Row>"
+      	template:"<Row><Col><Card :bordered='false' style='margin-bottom:20px'><a slot='title' class='item-title' :href='todo.link'><p class='task-title'>{{todo.title}}</p></a><p slot='extra'>{{todo.date}}</p><a target='_blank' :href='todo.link'><p>{{todo.link}}</p></a></Card></Col></Row>"
       });
       var backtop = new Vue({
         el:"#backtop"
@@ -255,12 +262,9 @@
       var tasks = new Vue({
       	el:"#tasks_container",
       	data:{
-          tasks:[
-            {date:"2017-04-14",title:"这是任务4",link:"http://dwz.cn/5KGeMN"},
-            {date:"2017-04-07",title:"这是任务3",link:"http://dwz.cn/5KGoPA"},
-            {date:"2017-04-05",title:"这是任务2",link:"http://dwz.cn/5KGpL4"},
-            {date:"2017-04-01",title:"这是任务1",link:"#"},
-          ],
+          tasks_all: TAFFY(task),
+          tasks: TAFFY(task)().limit(3).get(),
+          //tasks_next:  TAFFY(task)({id:{gt:3}}),
           publish: {
           	isShow:true,
           	title:'',
@@ -269,24 +273,30 @@
           loadingCount:0,
           loading:false,
           isActive:false,
-          modal:false
+          modal:false,
+          fdate:''
       	},
         components: {MugenScroll},
       	methods:{
         	fetchData() {
         	  this.loading = true
         	  // ... the code you wanna run to fetch data
-        	  if(this.loadingCount<10)
+        	  if(this.loadingCount<task.length-3)
             {
-    		  	  this.tasks.push({date:"2017-03-20",title:"这是任务",link:"#"})
-              this.loadingCount = this.loadingCount + 1
+    		  	  this.tasks.push(this.tasks_all().start(this.loadingCount+4).first());
+              this.loadingCount = this.loadingCount + 1;
     		    }
             else
             {
               this.isActive = true
             }
         	  this.loading = false
-        	}
+        	},
+          filterData(para) {
+            this.fdate=para;
+            
+
+          }
       	}
       });
     </script>
