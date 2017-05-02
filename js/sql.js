@@ -66,6 +66,7 @@ var editor = ace.edit("editor");
       function execSQL(dbName){    
         queries = editor.getValue().split(";");
         len = queries.length;
+        console.log(queries[len-1]);
         if(queries[len-1]=="")  //最后一项为空
         {
           len = len - 1;
