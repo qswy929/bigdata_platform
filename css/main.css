@@ -145,3 +145,6 @@ body {
     text-decoration: none !important;
     color: black !important;
   }
+  .text-white-space {
+        white-space: pre-wrap;
+  

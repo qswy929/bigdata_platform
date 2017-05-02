@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>在线实践教程：SQL</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />  
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />  
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>在线实践教程：云件</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/iview/2.0.0-rc.9/styles/iview.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <style type="text/css">
       body {
         padding-top: 50px !important;
@@ -38,8 +38,9 @@
  
 
       .row-common-style {
-        #background-color: #C0392B;
-        background-image: url(img/practice/header.jpg);
+        #background-color: #32a7b8;
+        #background-image: url(../img/practice/practice_header.jpg);
+        background: #2c98e3 url(../img/practice/practice_header.jpg);
         background-size:cover;
         background-position: center;
         margin-bottom: 20px;
@@ -78,6 +79,14 @@
         position: relative;
         z-index: 1;
       }
+      h5 {
+        font-size: 16px;
+      }
+      .img-responsive-control {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
       @media (min-width:768px) {
         .p-title {
           font-size: 24px;
@@ -93,6 +102,11 @@
           font-size: 18px !important;
           position: relative;
           z-index: 2;
+        }
+      }
+      @media (min-width:992px) {
+        .img-responsive-control {
+          max-width: 80% !important;
         }
       }
     </style>
@@ -114,44 +128,44 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><img alt="Brand" src="img/logo.png" width="20px" /></a>
+          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
           <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="task.html">最新任务</a></li>
-            <li><a href="course.html">课程</a></li>
-            <li><a href="practice.html">在线实践</a></li>
-            <li><a href="case.html">大数据案例</a></li>
-            <li class="visible-lg-block visible-md-block"><a href="dataset.html">数据集</a></li>
-            <li class="visible-lg-block visible-md-block"><a href="submit.html">作业提交</a></li>
-            <li class="visible-lg-block"><a href="competition.html">数据竞技场</a></li>
-            <li class="visible-lg-block"><a href="faq.html">FAQ</a></li>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../task.html">最新任务</a></li>
+            <li><a href="../course.html">课程</a></li>
+            <li><a href="../practice.html">在线实践</a></li>
+            <li><a href="../case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../dataset.html">数据集</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="../competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="../faq.html">FAQ</a></li>
             <!--  响应式工具 -->
             <li class="dropdown visible-md-block">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <!--<li><a href="#">作业提交</a></li>-->
-                <li><a href="competition.html">数据竞技场</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
               </ul>
             </li>
             <li class="dropdown visible-sm-block visible-xs-block">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="dataset.html">数据集</a></li>
-                <li><a href="submit.html">作业提交</a></li>
-                <li><a href="competition.html">数据竞技场</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="../dataset.html">数据集</a></li>
+                <li><a href="../submit.html">作业提交</a></li>
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right" id="user">
             <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
-            <li><a href="member/signup.html">注册</a></li>
+            <li><a href="../member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -164,73 +178,62 @@
     <div class="container-fluid">
       <div class="row row-common-style row-height text-center">
         <h1 class="color-white">在线实践</h1>
-        <p class="color-white p-title">SQL编辑器的使用教程</p>
+        <p class="color-white p-title">云件的使用教程</p>
       </div>
     </div>
 
   
-
-
-
-
     <div id="course_container">
       <Row>
         <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    问题一
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  这是问题一的答案
-                </div>
-              </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">云件简介</h3>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    问题二
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                  这是问题二的答案
-                </div>
-              </div>
+            <div class="panel-body">
+              <a href="../tool/cloudware.html">云件</a>技术就是将所有传统PC桌面软件全部迁移到云端，并通过浏览器为终端用户提供使用的服务。操作云件全程通过浏览器使用，免去了本地安装的过程，做到真正的“即来即用”。云件将推动软件交付模式创新，改变用户习惯、修改行业规则、颠覆软件产业，将是云计算和互联网时代软件产品交付使用，移动时代个人软件按需计算，云计算时代软件服务模式创新的未来。
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    问题三
-                  </a>
-                </h4>
+          </div>
+        </i-col>
+
+        <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">使用教程</h3>
+            </div>
+            <div class="panel-body">
+              <h5>1. 浏览器支持</h5>
+              <span>云件的交互依赖于WebRTC框架，因此使用云件必须在支持此框架的浏览器（如Chrome）中进行。</span>
+              <h5>2. 使用场景</h5>
+              <span>云件虽然并不依附于某个数据集，但是同样提供了数据分析的软件，如Matlab、Rstudio、SPSS等，利用这些软件不仅能够处理数据，更可以配合平台提供的<a href='../course.html'>课程</a>中的对应内容，进行在线的学习实践。</span>
+              <img class="img-responsive img-responsive-control" src="../img/practice/course/pic5.png" alt="配图">
+              <h5>3. 使用方法</h5>
+              <span>点击本页面底部的链接，即可进入。进入云件环境后，可以像本地桌面一样，点击所需云件的图标，稍等片刻云件就能运行，呈现在您的面前。</span>
+              <img class="img-responsive img-responsive-control" src="../img/practice/course/pic6.png" alt="配图">
+            </div>
+          </div>
+        </i-col>
+
+        <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">体验云件</h3>
+            </div>
+            <div class="panel-body">
+              <span>通过上述简单的介绍，您是否已经迫不及待地想看看云件的真面目了，点击下方链接，尽情体验吧！</span>
+              <div class="text-center">
+                <h4 class="margin-center"><a href="../tool/cloudware.html"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> 进入云件环境<a></h4>
               </div>
-              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                  这是问题三的答案
-                </div>
-              </div>
+              
             </div>
           </div>
         </i-col>
       </Row>
     </div>
 
-
-    
-
-   
     <!--footer-->
     <footer>
-      <div class="container-fluid footer-fixed">
+      <div class="container-fluid footer-margin-top">
         <div class="container text-center">
           <div class="row">
             <div class="col-md-6">
@@ -249,13 +252,13 @@
       </div>
     </footer>
    
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <!-- vue.js -->
-    <script src="js/vue.min.js"></script>
-    <script type="text/javascript" src="js/iview.min.js"></script>
-    <script src="js/userstatus.js" type="text/javascript"></script>
+    <script src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../js/iview.min.js"></script>
+    <script src="../js/userstatus.js" type="text/javascript"></script>
 
     <!-- 这里加入js代码 -->
     <script type="text/javascript">

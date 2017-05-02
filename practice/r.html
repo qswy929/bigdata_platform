@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在线实践教程：RStudio</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/iview/2.0.0-rc.9/styles/iview.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <style type="text/css">
+      body {
+        padding-top: 50px !important;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+      .backtop{
+        #position: fixed;
+        #bottom: 50px;
+        #right: 20px;
+        #padding: 10px;
+        height: 40px;
+        width: 45px;
+        background-color: rgba(0,0,0,0.45);
+        text-align: center;
+        border-radius: 2px;
+      }
+
+      #tasks_container a,#tasks_container a:visited,#tasks_container a:hover,#tasks_container a:active { /*全部状态都一样的效果*/
+          color: grey; 
+          text-decoration: none; 
+          //position: relative;
+          //z-index: 2;         
+      } 
+ 
+
+      .row-common-style {
+        #background-color: #32a7b8;
+        #background-image: url(../img/practice/practice_header.jpg);
+        background: #2c98e3 url(../img/practice/practice_header.jpg);
+        background-size:cover;
+        background-position: center;
+        margin-bottom: 20px;
+      }
+      .row-height {
+        height:155px;
+      }
+      .color-white {
+        color: white;
+      }
+      .p-color {
+        color: rgb(255, 196, 174);
+      }
+      p {
+        margin: 0;
+      }
+      h1 {
+        margin-top: 42px;
+        font-size: 37px;
+      }
+      .p-title {
+        font-size: 16px;
+      }
+      .task-title {
+        font-size: 16.5px !important;
+      }
+      .text-margin {
+          margin-top: 8px;
+          margin-bottom: 25px;
+      }
+      .loadingHide {
+        display: none;
+      }
+      .block {
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      h5 {
+        font-size: 16px;
+      }
+      .img-responsive-control {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      @media (min-width:768px) {
+        .p-title {
+          font-size: 24px;
+        }
+        h1 {
+          margin-top: 57px;
+          font-size: 53px;
+        }
+        .row-height {
+          height: 220px;
+        }
+        .task-title {
+          font-size: 18px !important;
+          position: relative;
+          z-index: 2;
+        }
+      }
+      @media (min-width:992px) {
+        .img-responsive-control {
+          max-width: 80% !important;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><img alt="Brand" src="../img/logo.png" width="20px" /></a>
+          <a class="navbar-brand navbar-brand-compact">Parthenon平台</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../task.html">最新任务</a></li>
+            <li><a href="../course.html">课程</a></li>
+            <li><a href="../practice.html">在线实践</a></li>
+            <li><a href="../case.html">大数据案例</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../dataset.html">数据集</a></li>
+            <li class="visible-lg-block visible-md-block"><a href="../submit.html">作业提交</a></li>
+            <li class="visible-lg-block"><a href="../competition.html">数据竞技场</a></li>
+            <li class="visible-lg-block"><a href="../faq.html">FAQ</a></li>
+            <!--  响应式工具 -->
+            <li class="dropdown visible-md-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!--<li><a href="#">作业提交</a></li>-->
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
+            <li class="dropdown visible-sm-block visible-xs-block">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../dataset.html">数据集</a></li>
+                <li><a href="../submit.html">作业提交</a></li>
+                <li><a href="../competition.html">数据竞技场</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" id="user">
+            <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
+            <li><a href="../member/signup.html">注册</a></li>
+            <li><a v-text="ope_info" v-bind:href="url"></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    <!--正文内容-->
+    <div class="container-fluid">
+      <div class="row row-common-style row-height text-center">
+        <h1 class="color-white">在线实践</h1>
+        <p class="color-white p-title">RStudio的使用教程</p>
+      </div>
+    </div>
+
+  
+    <div id="course_container">
+      <Row>
+        <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">RStudio简介</h3>
+            </div>
+            <div class="panel-body">
+              本平台的RStudio依托于星环TOS中的Discover机器学习组件，提供多种传统及分布式的算法包。下面将以<strong>Iris鸢尾花卉数据</strong>为例，简单介绍SQL编辑器的使用方法。
+            </div>
+          </div>
+        </i-col>
+
+        <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">使用教程</h3>
+            </div>
+            <div class="panel-body">
+              <h5>1. 选择数据集</h5>
+              <span>选择导航栏中的“数据集”，可以看到平台中提供的所有数据集，点选需要的数据集，如Iris数据。</span>
+              <img class="img-responsive img-responsive-control" src="../img/practice/course/pic1.png" alt="配图">
+              <h5>2. 进入RStudio</h5>
+              <span>默认将会跳转到SQL编辑器的界面，此时可以点击右上角的下拉菜单，选择"R"，将会切换到RStudio的界面，如下图。</span>
+              <img class="img-responsive img-responsive-control" src="../img/practice/course/pic3.png" alt="配图">
+              <h5>3. 数据分析</h5>
+              <span>首先使用其中的<strong>"bigdataR"包</strong>将Iris数据从Inceptor中加载：</span>
+              <div class="text-white-space">
+        sc <- bigdata.init() #初始化连接
+        sqlCon <- txConnect(host = 'inceptor23i1ao-1232460318-97k0n', dbName = 'iris')  #使用该host和dbName
+        table <- txSqlQuery(sqlConnection = sqlCon, query = 'select id, sepallengthcm, sepalwidthcm, petallengthcm, petallengthcm, species from iris')  #SQL语句"
+        iris_demo <- txCollect(list(table$id,table$sepallengthcm,sepalwidthcm,table$petallengthcm,table$petallengthcm,table$species))  #选择所有列
+        txRemove(table)
+        txSqlDisconnect(sqlConnection = sqlCon)  #关闭连接
+              </div>
+              <span>之后参照<a target="_blank" href="http://blog.csdn.net/solomon1558/article/details/41325959">该博文</a>中的方法对数据进行回归分析，发现下面是一个对Iris不错的分类模型：</span>
+              <img class="img-responsive img-responsive-control" src="../img/practice/course/pic4.png" alt="配图">
+            </div>
+          </div>
+        </i-col>
+
+        <i-col :lg='{span: 18, offset: 3}' :md='{span: 20, offset: 2}' :xs='{span: 22, offset: 1}'>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">动手实践</h3>
+            </div>
+            <div class="panel-body">
+              <span>通过上述简单的介绍，您是否已经掌握了RStudio的使用方法？如果是的话，不妨使用平台提供的数据集，自行尝试一番！</span>
+              <div class="text-center">
+                <h4 class="margin-center"><a href="../dataset.html"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> 转至数据集<a></h4>
+              </div>
+              
+            </div>
+          </div>
+        </i-col>
+      </Row>
+    </div>
+
+    <!--footer-->
+    <footer>
+      <div class="container-fluid footer-margin-top">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="no-extra"><a href="#">关于平台</a></li>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">注意事项</a></li>
+                <li><a href="#" target="_blank">联系邮箱</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              Copyright © 2017 Tongji All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+   
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- vue.js -->
+    <script src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../js/iview.min.js"></script>
+    <script src="../js/userstatus.js" type="text/javascript"></script>
+
+    <!-- 这里加入js代码 -->
+    <script type="text/javascript">
+      var page = new Vue({
+        el:'#course_container'
+      });
+    </script>
+  </body>
+</html>
