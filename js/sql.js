@@ -8,7 +8,7 @@ var editor = ace.edit("editor");
       var cur_step = 0;
       var table;
       var len;  //SQL语句条数
-
+      var database = this.getUrlParam('db');
 
 
       function getUrlParams(){
@@ -29,10 +29,17 @@ var editor = ace.edit("editor");
       //入口
       function start()
       {
-        var database = this.getUrlParam('db');
         if(database!="undefined" && database!="")
         {
           execSQL(database);
+        }
+      }
+
+      function start_next()
+      {
+        if(database!="undefined" && database!="")
+        {
+          execSQL_Next(database);
         }
       }
 
