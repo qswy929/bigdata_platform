@@ -48,6 +48,8 @@ var editor = ace.edit("editor");
       {
         if(cur_step > 1 && cur_step <= len)
         {
+          console.log(cur_step);
+          console.log(len);
           if(cur_step + 1 > len)
           {
             $("#btn_next").css('display','none');
