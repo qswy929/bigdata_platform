@@ -36,7 +36,7 @@
       $(function(){ 
         if(typeof($.cookie('JSESSIONID'))=="undefined")
         {
-          window.location.href="../member/signin.html";
+          //window.location.href="../member/signin.html";
         }
       });
     </script>
@@ -112,7 +112,7 @@
       <div class="container-fluid">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse" id="nav_control" >
-          <a class="navbar-brand navbar-brand-sm navbar-margin" v-if="isShow">口碑客流量</a>
+          <a class="navbar-brand navbar-brand-sm navbar-margin" v-text="brief"></a>
           <ul class="nav navbar-right-fixed">
             <li>
               <div class="btn-group" role="group">
@@ -178,6 +178,8 @@ show tables;</div>
     <!-- vue.js -->
     <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
+    <script src="../js/taffy-min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/data/brief_name.js"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function(){ 
@@ -193,7 +195,7 @@ show tables;</div>
       var sqlVue = new Vue({
         el:"#nav_control",
         data:{
-          isShow:true,
+          brief:'',
           sqlHref:'sql.html'
         },
         methods:{
@@ -211,18 +213,15 @@ show tables;</div>
           getUrlParam: function(name){
             return this.getUrlParams()[name];
           },
-          isExample: function() {
+          showName: function() {
             var database = this.getUrlParam('db');
             this.sqlHref = 'sql.html?db='+database;
-            if(database=='example')
-            {
-              this.isShow=false;
-            }
+            this.brief = TAFFY(brief_name)({dbName:database}).first().breifName;
           }
         },
         mounted: function() {
           //alert($.cookie('username'))
-          this.isExample();
+          this.showName();
         }
       });
     </script>
