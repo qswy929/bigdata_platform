@@ -48,8 +48,8 @@ var editor = ace.edit("editor");
       {
         if(cur_step > 1 && cur_step <= len)
         {
-          console.log(cur_step);
-          console.log(len);
+          //console.log(cur_step);
+          //console.log(len);
           if(cur_step + 1 > len)
           {
             $("#btn_next").css('display','none');
@@ -66,10 +66,9 @@ var editor = ace.edit("editor");
       function execSQL(dbName){    
         queries = editor.getValue().split(";");
         len = queries.length;
-        console.log(queries[len-1]);
+        console.log(queries[len-1].length);
         if(queries[len-1]=='')  //最后一项为空
         {
-          alert("empty");
           len = len - 1;
         }
         cur_step = 1;
