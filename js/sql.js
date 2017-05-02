@@ -67,8 +67,9 @@ var editor = ace.edit("editor");
         queries = editor.getValue().split(";");
         len = queries.length;
         console.log(queries[len-1]);
-        if(queries[len-1]=="")  //最后一项为空
+        if(queries[len-1]=='')  //最后一项为空
         {
+          alert("empty");
           len = len - 1;
         }
         cur_step = 1;
