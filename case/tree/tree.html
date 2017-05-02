@@ -5,8 +5,18 @@
 	<title>简单的分形树</title>
 </head>
 <body>
-	<canvas id="mycanvas" height="800" width="1000"></canvas>  
-<script>  
+	<canvas id="mycanvas" height="700" width="1000"></canvas>  
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script> 
+
+     $(document).ready(function(){ 
+        var height = $(window).height();
+        var width = $(window).width()
+        $("#mycanvas").css("width",width);
+        
+      });
+
     var stop=4 ,l=0.7,slantl=20;  
     var point=new Array(0,0),slantr=slantl;  
     var hehe=document.getElementById("mycanvas");  
@@ -34,11 +44,11 @@
         drawtree(rpoint,long,angle-slantr,time+1);  
     }  
     qui.beginPath();  
-    qui.moveTo(400,700);  
-    qui.lineTo(400,500);  
+    qui.moveTo(480,700);  
+    qui.lineTo(480,500);  
     qui.closePath();  
     qui.stroke();  
-    point[0]=400;point[1]=-500;  
+    point[0]=480;point[1]=-500;  
     drawtree(point,200,angle,0);  
 </script> 
 </body>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>云件环境</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
@@ -112,7 +112,10 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <iframe id="cloudware" width="100%" scrolling="auto" frameborder="0" src="http://cloudwarehub.com"></iframe>
+    <div>
+      <iframe id="cloudware" width="100%" scrolling="auto" frameborder="0" src="http://cloudwarehub.com"></iframe>
+    </div>
+    
 
   
 
@@ -154,6 +157,7 @@
         });
       });
       function changeFrameHeight() {
+
         var height = $(window).height();
         $("#cloudware").css('height',height-50);
       }

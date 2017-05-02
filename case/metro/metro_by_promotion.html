@@ -254,7 +254,7 @@
 			.attr("id", promo_st_name)
 			.attr("cy", function(d) {
 				// if (stations[promo_st_name(d)]["LAT"] == undefined) { console.log(d["name"]); }
-				console.log(promo_st_name(d));
+				//console.log(promo_st_name(d));
 				return y(parseFloat(stations[promo_st_name(d)]["LAT"])); 
 			})
 			.attr("cx", function(d) { return x(parseFloat(stations[promo_st_name(d)]["LNG"])); })
@@ -469,7 +469,7 @@
 			.attr("class", "entry")
 			.attr("id", st_name)
 			.attr("cy", function(d) {
-				if (stations[st_name(d)]["LAT"] == undefined) { console.log(d["name"]); }
+				if (stations[st_name(d)]["LAT"] == undefined) { /*console.log(d["name"]);*/ }
 				return y(parseFloat(stations[st_name(d)]["LAT"])); 
 			})
 			.attr("cx", function(d) { return x(parseFloat(stations[st_name(d)]["LNG"])); })
