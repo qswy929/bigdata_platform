@@ -63,36 +63,49 @@
               // 响应成功回调
                 if(response.body!="Error") 
                 {
-                  var username = response.body;
-                  var payload = username + "\n" + username;
-                        var chunks = response.body.split(':', 2);
-                        //console.log(chunks);
-                        var exp = chunks[0];
-                        var mod = chunks[1];
-                        var encrypted = encrypt(payload, exp, mod);
+                  //在RStudio中登录
+                  this.$http.get(this.keyUrl).then(function(response){
+                    // 响应成功回调
+                    if(response.body!="")
+                    {
+                      var username = response.body;
+                      var payload = username + "\n" + username;
+                      var chunks = response.body.split(':', 2);
+                      //console.log(chunks);
+                      var exp = chunks[0];
+                      var mod = chunks[1];
+                      var encrypted = encrypt(payload, exp, mod);
 
-                        this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
-                          // 响应成功回调
-                            window.location.href="r.html?db="+this.getUrlParam('db');
-                            window.event.returnValue = false; 
+                      this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
+                        // 响应成功回调
+                          window.location.href="r.html?db="+this.getUrlParam('db');
+                          window.event.returnValue = false;
 
-                        },function(response){
-                          // 响应错误回调
-                          alert("自动登录失败1！");
-                          window.location.href="../index.html";
-                          window.event.returnValue = false; 
-                        }); 
+                      },function(response){
+                        // 响应错误回调
+                        alert("自动登录失败！");
+                        window.location.href="../index.html";
+                        window.event.returnValue = false; 
+                      }); 
+                    }
+                  },function(response){
+                    // 响应错误回调
+                    alert("抱歉，RStudio服务器无响应！");
+                    window.location.href="../index.html";
+                    window.event.returnValue = false; 
+                  }); 
+                  
                 } 
                 else
                 {
-                  alert("自动登录失败2！");
+                  alert("自动登录失败！");
                   window.location.href="../index.html";
                   window.event.returnValue = false; 
                 }
       
               }, function(response){
                  // 响应失败回调
-                  alert("自动登录失败3！");
+                  alert("自动登录失败！");
                   window.location.href="../index.html";
                   window.event.returnValue = false; 
               });
