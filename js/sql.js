@@ -94,7 +94,7 @@ var editor = ace.edit("editor");
       function loadTable(dbName, query){
           $("button").attr({"disabled":"disabled"});
           $("#container_loading").css('display','inherit');
-          var addr = '../api/v1/inceptorsql';
+          var addr = '../api/v1/inceptorsqlnosignin';
 
           re = new RegExp("from","g"); //定义正则表达式
           //第一个参数是要替换掉的内容，第二个参数"g"表示替换全部（global）。
