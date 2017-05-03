@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title>在线编辑器</title>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
@@ -134,8 +134,8 @@
 
 
     <!--正文内容-->
-    <div class="embed-responsive embed-responsive-4by3">
-      <iframe id="rstudio" class="embed-responsive-item" frameborder="0" src="rstudio/"></iframe>
+    <div>
+      <iframe id="rstudio" width="100%" scrolling="auto" frameborder="0" src="rstudio/"></iframe>
     </div>
     <!--<div class="container-fluid">
       <div class="row">
@@ -183,7 +183,7 @@ show tables;</div>
     <script type="text/javascript" src="../js/data/brief_name.js"></script>
     <script src="../js/userstatus.js" type="text/javascript"></script>
     <script type="text/javascript">
-      /*$(document).ready(function(){ 
+      $(document).ready(function(){ 
         changeFrameHeight();
         $(window).resize(function(){
           changeFrameHeight();
@@ -192,7 +192,7 @@ show tables;</div>
       function changeFrameHeight() {
         var height = $(window).height();
         $("#rstudio").css('height',height-50);
-      }*/
+      }
       var sqlVue = new Vue({
         el:"#nav_control",
         data:{
