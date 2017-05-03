@@ -34,9 +34,9 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(function(){ 
-        if(typeof($.cookie('JSESSIONID'))=="undefined")
+        if(typeof($.cookie('user-id'))=="undefined")
         {
-          //window.location.href="../member/signin.html";
+          window.location.href="switch.html";
         }
       });
     </script>
