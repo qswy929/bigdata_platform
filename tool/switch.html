@@ -63,7 +63,7 @@
             return this.getUrlParams()[name];
           },
           onLoad: function() {
-            if(typeof($.cookie('demoid'))=="undefined" || $.cookie('demoid') == null)  //cookie为空
+            if(typeof($.cookie('JSESSIONID'))=="undefined" || typeof($.cookie('demoid'))=="undefined" || $.cookie('demoid') == null)  //cookie为空
             {
               this.$http.post(this.apiUrl).then(function(response){
               // 响应成功回调
