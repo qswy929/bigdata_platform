@@ -84,9 +84,9 @@
 
                       this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
                         // 响应成功回调
-                          var date = new Date();
-                          date.setTime(date.getTime()+3600*1000);//只能这么写，10表示10秒钟
-                          $.cookie('demoid', 'user_demo', { expires: date, path: '/' }); 
+                          //var date = new Date();
+                          //date.setTime(date.getTime()+3600*1000);//只能这么写，10表示10秒钟
+                          $.cookie('demoid', 'user_demo', {path: '/'}); 
                           window.location.href="r.html?db="+this.getUrlParam('db');
 
                       },function(response){
