@@ -152,6 +152,11 @@ body {
     -webkit-overflow-scrolling:touch;
     overflow: scroll;
   }
+  @media (min-width:768px) {
+    .display-safari {
+      overflow: visible;
+    }
+  }
 
 
   
