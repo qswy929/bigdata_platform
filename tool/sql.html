@@ -232,7 +232,7 @@ select * from table_name limit 20;
           },
           showName: function() {
             var database = this.getUrlParam('db');
-            this.rHref = 'switch.html?db='+database;
+            this.rHref = 'rstudio/switch.html?db='+database;
             this.brief = TAFFY(brief_name)({dbName:database}).first().breifName;
           }
         },

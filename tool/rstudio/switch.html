@@ -5,12 +5,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>跳转</title>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon" />  
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />  
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon" />  
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />  
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->   
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <style type="text/css">
       body{
         padding-top: 0px !important;
@@ -26,10 +26,10 @@
       <h4>跳转中……</h4>
     </div>
    
-    <script src="../js/jquery-3.1.1.min.js"></script>
-    <script src="../js/jquery.cookie.js"></script>
-    <script src="../js/encrypt.min.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../js/encrypt.min.js" type="text/javascript"></script>
+    <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
     <!-- vue.js -->
     <script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.2.1/vue-resource.min.js"></script>
@@ -40,11 +40,11 @@
       new Vue ({
         el: '#form_signin',
         data : {
-          apiUrl: '../api/v1/user/autosignin',
-          keyUrl: "rstudio/auth-public-key",
-          doUrl: "rstudio/auth-do-sign-in",
+          apiUrl: '../../api/v1/user/autosignin',
+          keyUrl: "auth-public-key",
+          doUrl: "auth-do-sign-in",
           persist: "0",
-          appUri:'/',
+          appUri:'',
           clientPath:"/tool/rstudio/auth-sign-in"
         },
         methods: {
@@ -84,37 +84,37 @@
 
                       this.$http.post(this.doUrl,{persist:this.persist,v:encrypted,clientPath:this.clientPath,appUri:this.appUri}).then(function(response){
                         // 响应成功回调
-                          window.location.href="r.html?db="+this.getUrlParam('db');
+                          window.location.href="../r.html?db="+this.getUrlParam('db');
 
                       },function(response){
                         // 响应错误回调
                         alert("自动登录失败！");
-                        window.location.href="../index.html";
+                        window.location.href="../../index.html";
                       }); 
                     }
                   },function(response){
                     // 响应错误回调
                     alert("抱歉，RStudio服务器无响应！");
-                    window.location.href="../index.html";
+                    window.location.href="../../index.html";
                   }); 
                   
                 } 
                 else
                 {
                   alert("自动登录失败！");
-                  window.location.href="../index.html";
+                  window.location.href="../../index.html";
                 }
       
               }, function(response){
                  // 响应失败回调
                   alert("自动登录失败！");
-                  window.location.href="../index.html";
+                  window.location.href="../../index.html";
               });
             }
             else
             {
               //cookie尚有效
-              window.location.href="r.html?db="+this.getUrlParam('db');
+              window.location.href="../r.html?db="+this.getUrlParam('db');
             }
           }
         },
