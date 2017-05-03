@@ -147,4 +147,11 @@ body {
   }
   .text-white-space {
         white-space: pre-wrap;
+  }
+  .display-safari {
+    -webkit-overflow-scrolling:touch;
+    overflow: scroll;
+  }
+
+
   
