@@ -34,7 +34,7 @@
     <!-- 这里加入js代码 -->
     <script type="text/javascript">
       $(function(){ 
-        if(document.referrer=="" || document.referrer.indexOf("switch")==-1)
+        if(typeof($.cookie('demoid'))=="undefined" || $.cookie('demoid') == null)
         {
           window.location.href="../index.html";
         }
