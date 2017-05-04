@@ -147,8 +147,8 @@ var editor = ace.edit("editor");
                 });
               }
              catch(err) {
-                //alert(json);
-                alert("当前平台访问人数较多，功能暂时关闭，敬请谅解！");
+                alert(json);
+                //alert("当前平台访问人数较多，功能暂时关闭，敬请谅解！");
               }
               finally {
                 $("button").removeAttr("disabled");//将按钮可用
