@@ -188,7 +188,7 @@
     		  <li class="list-group-item list-group-item-danger"><a class="block" @click="filterData(dateFilter.fourth.replace(/年/,'-').replace(/月/,''))" v-text="dateFilter.fourth"></a></li>
     		</ul>
       </div>
-    	<div class="col-lg-9 col-sm-9">
+      <div class="col-lg-9 col-sm-9">
         <!--课件-->
         <span class="span-h2">课件</span>
           <Row>
@@ -203,9 +203,9 @@
               </Card>
             </i-col>
           </Row>
-
+        <!---->
         <!--任务-->
-        <span class="span-h2">教学任务</span> 
+        <span class="span-h2">实验项目</span>
         <i-button  class='pull-right' @click='recover' type="warning" v-if="fdate!=''">清除筛选</i-button>
     		<task-item v-for="task in tasks" :todo="task"></task-item>
     		<mugen-scroll :handler="fetchData" :should-handle="!loading">

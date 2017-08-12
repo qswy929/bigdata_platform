@@ -4454,10 +4454,10 @@ $.jgrid.extend({
 									throw "e2";
 								}
 							} else {
-								throw "e1";
+								throw "kmeans";
 							}
 						} catch (e) {
-							if (e === "e1") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose);}
+							if (e === "kmeans") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose);}
 							if (e === "e2") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose);}
 							else { $.jgrid.info_dialog($.jgrid.errors.errcap,typeof e==="string"?e:e.message,$.jgrid.edit.bClose); }
 						}
@@ -6280,10 +6280,10 @@ $.extend($.jgrid,{
 							throw "e2";
 						}
 					} else {
-						throw "e1";
+						throw "kmeans";
 					}
 				} catch (e) {
-					if (e==="e1") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.nodefined, $.jgrid.edit.bClose);}
+					if (e==="kmeans") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.nodefined, $.jgrid.edit.bClose);}
 					if (e==="e2") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_element' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose);}
 					else { $.jgrid.info_dialog($.jgrid.errors.errcap,typeof e==="string"?e:e.message,$.jgrid.edit.bClose); }
 				}
@@ -7592,9 +7592,9 @@ $.jgrid.extend({
 							if(this.name === nm && this.editoptions && $.isFunction(this.editoptions.custom_value)) {
 								try {
 									postdata[nm] = this.editoptions.custom_value.call($t, $("#"+$.jgrid.jqID(nm),frmtb),'get');
-									if (postdata[nm] === undefined) {throw "e1";}
+									if (postdata[nm] === undefined) {throw "kmeans";}
 								} catch (e) {
-									if (e==="e1") {$.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose);}
+									if (e==="kmeans") {$.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose);}
 									else {$.jgrid.info_dialog($.jgrid.errors.errcap,e.message,$.jgrid.edit.bClose);}
 								}
 								return true;
@@ -7828,9 +7828,9 @@ $.jgrid.extend({
 								try {
 									if(cm[i].editoptions && $.isFunction(cm[i].editoptions.custom_value)) {
 										cm[i].editoptions.custom_value.call($t, $("#"+nm,"#"+fmid),'set',tmp);
-									} else {throw "e1";}
+									} else {throw "kmeans";}
 								} catch (e) {
-									if (e==="e1") {$.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose);}
+									if (e==="kmeans") {$.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose);}
 									else {$.jgrid.info_dialog($.jgrid.errors.errcap,e.message,$.jgrid.edit.bClose);}
 								}
 								break;
@@ -9508,9 +9508,9 @@ $.jgrid.extend({
 								if(cm.editoptions && $.isFunction(cm.editoptions.custom_value)) {
 									tmp[nm] = cm.editoptions.custom_value.call($t, $(".customelement",this),'get');
 									if (tmp[nm] === undefined) { throw "e2"; }
-								} else { throw "e1"; }
+								} else { throw "kmeans"; }
 							} catch (e) {
-								if (e==="e1") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose); }
+								if (e==="kmeans") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose); }
 								if (e==="e2") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose); }
 								else { $.jgrid.info_dialog($.jgrid.errors.errcap,e.message,$.jgrid.edit.bClose); }
 							}
@@ -10114,9 +10114,9 @@ $.jgrid.extend({
 							if(cm.editoptions && $.isFunction(cm.editoptions.custom_value)) {
 								v = cm.editoptions.custom_value.call($t, $(".customelement",cc),'get');
 								if (v===undefined) { throw "e2";} else { v2=v; }
-							} else { throw "e1"; }
+							} else { throw "kmeans"; }
 						} catch (e) {
-							if (e==="e1") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose); }
+							if (e==="kmeans") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.nodefined,$.jgrid.edit.bClose); }
 							if (e==="e2") { $.jgrid.info_dialog($.jgrid.errors.errcap,"function 'custom_value' "+$.jgrid.edit.msg.novalue,$.jgrid.edit.bClose); }
 							else {$.jgrid.info_dialog($.jgrid.errors.errcap,e.message,$.jgrid.edit.bClose); }
 						}
