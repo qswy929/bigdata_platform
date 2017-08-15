@@ -153,6 +153,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right" id="user">
             <!--<li><button type="button" class="btn btn-primary btn-margin">云件环境</button></li>-->
+            <li><a href="manage/index.html">教学管理</a></li>
             <li><a href="member/signup.html">注册</a></li>
             <li><a v-text="ope_info" v-bind:href="url"></a></li>
           </ul>
@@ -204,16 +205,23 @@
             </i-col>
           </Row>
         <!---->
-        <!--任务-->
-        <span class="span-h2">实验项目</span>
+        <!--数据分析与挖掘实验-->
+        <span class="span-h2">数据分析与挖掘实验</span>
         <i-button  class='pull-right' @click='recover' type="warning" v-if="fdate!=''">清除筛选</i-button>
-    		<task-item v-for="task in tasks" :todo="task"></task-item>
-    		<mugen-scroll :handler="fetchData" :should-handle="!loading">
-        <Spin v-bind:class="{loadingHide: isActive}">
-          <Icon type="load-c" size=28></Icon>
-        </Spin>
-    		</mugen-scroll>
+        <task-item v-for="task in tasks" :todo="task"></task-item>
+
+        <!--&lt;!&ndash;大数据基础实验&ndash;&gt;-->
+        <!--<span class="span-h2">大数据分析与挖掘</span>-->
+        <!--<i-button  class='pull-right' @click='recover' type="warning" v-if="fdate!=''">清除筛选</i-button>-->
+        <!--<task-item v-for="task in tasks" :todo="task"></task-item>-->
+
+          <mugen-scroll :handler="fetchData" :should-handle="!loading">
+            <Spin v-bind:class="{loadingHide: isActive}">
+              <Icon type="load-c" size=28></Icon>
+            </Spin>
+          </mugen-scroll>
     	</div>
+
     </div>
     <div id="backtop">
       <Back-top>
@@ -257,6 +265,7 @@
     <script type="text/javascript" src="js/vue-mugen-scroll.min.js"></script>
     <script src="js/taffy-min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/data/task.js"></script>
+
     <script type="text/javascript" src="js/date.js"></script>
     <script>
       Vue.component("task-item",{
