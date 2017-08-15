@@ -156,6 +156,9 @@
 <!--正文内容-->
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
+        <button class="btn-primary btn" style="float: right"><a href="../tool/r.html" target="_blank" style="text-decoration: none;color: white">在线实验</a></button>
+        <br/>
+        <br/>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;在K均值算法中，质心是定义聚类原型（也就是机器学习获得的结果）的核心。在介绍算法实施的具体过程中，我们将演示质心的计算方法。而且你将看到除了第一次的质心是被指定的以外，此后的质心都是经由计算均值而获得的。</p>
         <br />
         <p>&nbsp;&nbsp;&nbsp;&nbsp;首先，选择K个初始质心（这K个质心并不要求来自于样本数据集），其中K是用户指定的参数，也就是所期望的簇的个数。每个数据点都被收归到距其最近之质心的分类中，而同一个质心所收归的点集为一个簇。然后，根据本次分类的结果，更新每个簇的质心。重复上述数据点分类与质心变更步骤，直到簇内数据点不再改变，或者等价地说，直到质心不再改变。</p>
